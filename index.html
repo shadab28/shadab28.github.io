@@ -20,8 +20,56 @@
 
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
-      <script src="yall.min.js">
-      document.addEventListener("DOMContentLoaded", yall);
+      <script >
+        document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages;    
+
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {  
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+    
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
+  }
+})
       </script>
 
 </head>
@@ -73,9 +121,9 @@
             <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
         </div>
       </div>
-      <img class="lazy" src="placeholder.jpg" data-src="img/ipad.png" class="img-fluid" alt="">
-    </div>
-alt="image"   </section>
+      <img class="lazy" src.jpg" data-src="img/ipad.png" class="img-fluid" alt="">
+    </div> 
+      </section>
 
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-light">
@@ -94,39 +142,39 @@ alt="image"   </section>
         </div>
       </div>
     </div>
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-7c1a6dca-515c-41b5-90ca-71343a5af44c-1551931431395.jpeg" alt="image" width="500" height="400">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-0ee8d5a4-791b-4da4-a855-202a670b42af-1534336219529.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-6a8b3eeb-228e-4f68-8543-cc86669876f4-1554362456221.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-8eee95ab-6b8e-41f4-9af7-3134fe0ae0db-1551931680991.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-16acd538-4e98-4c01-bff5-50e59eec9da5-1560251456845.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-23caa5f5-ed8f-491f-8ebe-eb0f11aa1425-1551931814011.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-60be946b-42a3-45e7-856d-33badd174ee6-1559889032817.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-6387740c-8038-4e8c-a481-3728061d433a-1559882678732.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-b7a447f1-7025-4221-a56a-a22b548d3540-1559882678731.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-4e477431-d51a-4a07-81c3-5eac51d6b6f9-1536145885760.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-0dad09e2-f1b3-47dd-9942-6dd120052ef7-1536145716365.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-82414723-8948-42c6-be50-42a03ec749b2-1548929114320.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-c952de0d-9c4e-4fa0-9a2e-e7ad9394a5e8-1548929138801.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-0981f8e0-f439-4c42-aa25-e9d84be46412-1548929218824.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-9e0cb182-7780-4235-98fd-679eb54e937f-1548929167467.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-18995e49-c7c4-43a0-84cd-9ed54971954b-1548929342786.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-677bb550-fe59-4d11-8e45-983426de248c-1557826232946.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-26f7ee61-0b9f-4280-b0d1-63f4be8a75a4-1557826338294.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-268143c9-451d-4e5b-81c4-26525c7d4690-1503479041935.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-e27479d0-4cf6-44f2-bd30-36775c7dd3f9-1503479775383.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-3dff1e18-93e8-411b-9c59-9ee094a134fd-1503479409196.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-e1e58236-f4b5-44d4-8599-546cf4aa59fa-1503479888693.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-216f92b4-7490-4229-8e5d-0f7816f7b176-1503480399405.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-f8120857-c6be-46a7-8e84-c0eb871526c3-1549871988329.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-7afe0ed5-2688-49c9-a36f-12da578b6dd3-1549872018042.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-6994e5fc-5d17-4691-8d4a-74437dabc5f0-1549872046159.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-d96a7cd2-2cc4-4f3d-8476-6ed55a352e88-1549872157317.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-1f06fd34-66f5-4c51-845f-a38bbcae5022-1549872288383.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-90f39fba-7008-4206-8c94-74e6b7649a2b-1557474108525.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-a9b254de-339a-45c3-a00b-1c568e9e3ccf-1557474382256.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-9f274bf1-bfa3-43b8-928c-66bfb101610b-1557474595079.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-0397f9b4-a025-4259-9e62-cfa0bccac66c-1557474332434.jpeg" alt="image" width="500" height="350">
-    <img class="lazy" src="placeholder.jpg" data-src="img\admin-panel-image-f758267f-b81e-4aa0-97be-2c90ab98e33c-1531373899814.jpeg" alt="image" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-7c1a6dca-515c-41b5-90ca-71343a5af44c-1551931431395.jpeg" width="500" height="400">
+    <img class="lazy" data-src="img\admin-panel-image-0ee8d5a4-791b-4da4-a855-202a670b42af-1534336219529.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-6a8b3eeb-228e-4f68-8543-cc86669876f4-1554362456221.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-8eee95ab-6b8e-41f4-9af7-3134fe0ae0db-1551931680991.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-16acd538-4e98-4c01-bff5-50e59eec9da5-1560251456845.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-23caa5f5-ed8f-491f-8ebe-eb0f11aa1425-1551931814011.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-60be946b-42a3-45e7-856d-33badd174ee6-1559889032817.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-6387740c-8038-4e8c-a481-3728061d433a-1559882678732.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-b7a447f1-7025-4221-a56a-a22b548d3540-1559882678731.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-4e477431-d51a-4a07-81c3-5eac51d6b6f9-1536145885760.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-0dad09e2-f1b3-47dd-9942-6dd120052ef7-1536145716365.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-82414723-8948-42c6-be50-42a03ec749b2-1548929114320.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-c952de0d-9c4e-4fa0-9a2e-e7ad9394a5e8-1548929138801.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-0981f8e0-f439-4c42-aa25-e9d84be46412-1548929218824.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-9e0cb182-7780-4235-98fd-679eb54e937f-1548929167467.jpeg" width="500" height="350">
+    <img class="lazy" pg" data-src="img\admin-panel-image-18995e49-c7c4-43a0-84cd-9ed54971954b-1548929342786.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-677bb550-fe59-4d11-8e45-983426de248c-1557826232946.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-26f7ee61-0b9f-4280-b0d1-63f4be8a75a4-1557826338294.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-268143c9-451d-4e5b-81c4-26525c7d4690-1503479041935.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-e27479d0-4cf6-44f2-bd30-36775c7dd3f9-1503479775383.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-3dff1e18-93e8-411b-9c59-9ee094a134fd-1503479409196.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-e1e58236-f4b5-44d4-8599-546cf4aa59fa-1503479888693.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-216f92b4-7490-4229-8e5d-0f7816f7b176-1503480399405.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-f8120857-c6be-46a7-8e84-c0eb871526c3-1549871988329.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-7afe0ed5-2688-49c9-a36f-12da578b6dd3-1549872018042.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-6994e5fc-5d17-4691-8d4a-74437dabc5f0-1549872046159.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-d96a7cd2-2cc4-4f3d-8476-6ed55a352e88-1549872157317.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-1f06fd34-66f5-4c51-845f-a38bbcae5022-1549872288383.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-90f39fba-7008-4206-8c94-74e6b7649a2b-1557474108525.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-a9b254de-339a-45c3-a00b-1c568e9e3ccf-1557474382256.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-9f274bf1-bfa3-43b8-928c-66bfb101610b-1557474595079.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-0397f9b4-a025-4259-9e62-cfa0bccac66c-1557474332434.jpeg" width="500" height="350">
+    <img class="lazy" data-src="img\admin-panel-image-f758267f-b81e-4aa0-97be-2c90ab98e33c-1531373899814.jpeg" width="500" height="350">
     <div>
       <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
@@ -177,7 +225,7 @@ alt="image"   </section>
           <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
 
           <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+            <input type="email" class="form-control flex-fill mr-0sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
             <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
           </form>
 
