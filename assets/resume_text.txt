@@ -1,0 +1,54 @@
+--- PAGE 1 ---
+Mohd Shadab SiddiquiEmail: msiddiqui@ce.iitr.ac.in
+Quant Trader — Rates & STIRs (Sharpe 2.2) — IIT RoorkeeMobile: +91-9893592931
+Location: New Delhi, India linkedin.com/in/mohdshadabsiddiqui
+Education
+•Indian Institute of Technology (IIT), RoorkeeRoorkee, India
+Bachelor of Technology in Civil Engineering (76.46%) 2017 – 2021
+–SecuredAll India Rank 4200in JEE Advanced 2017 (Top 0.3% of 1.2 Million candidates)
+–AwardedBest B.Tech Projectby Director, IIT Roorkee
+•Certifications & Academic Achievements
+–FRM Level 1 Cleared(Nov 2024);FRM Level 2 Appeared(Nov 2025)
+–KVPY Fellow - All India Rank 1194 (Jul 2016)
+– Relevant Courses:Economics|Financial Mathematics|Game Theory|Numerical Methods|Statistics & Probability|
+Data Analysis & Visualization|Data Mining|System Analysis|Risk & Compliance (Basel)
+Technical Skills
+•Languages:Python (AsyncIO, Multiprocessing, Threading), C++, PostgreSQL,Redis
+•Quant Libraries:Pandas, NumPy, Polars, Numba, Scikit-learn, SciPy, PyTorch
+•Infrastructure & Tools:Docker, Linux, Git, XTS-API, WebSocket, Bloomberg, Trading Technologies, Reuters
+•Core Concepts:Market Microstructure, Limit Order Book (LOB) Dynamics, Greeks, VaR/CVaR, Monte Carlo
+Professional Experience
+•CKA Birla Group New Delhi, India
+Manager - New Business Initiatives Sept 2025 – Nov 2025
+–Designed systematic equity strategies (Piotroski + Momentum), delivering alpha with aSharpe Ratio of 2.6.
+–Executed comprehensive due diligence and developed robustDCF modelsto evaluate acquisition synergies
+•NX Block Trades Noida, India
+Quantitative Trader Oct 2024 – Aug 2025
+–Designed HFT strategies in Indian F&O, delivering32% annualized returnswith aSharpe Ratio of 3.2.
+–Builtlow-latency Python execution infrastructure(XTS API) withsub-20msrouting to optimize fill rates.
+–Managed a15 Crore INRbook using Monte Carlo simulations andKelly Criterionfor capital optimization.
+–Engineered custom scanners for Nifty/BankNifty breakouts and illiquid options to identify real-time arbitrage.
+•Futures First Gurugram, India
+SOFR Interest Rates Curve & Algo Trader Sep 2021 – Sep 2024
+–Developed 6 quantitative trading strategies forSR3, ZQ, and SR1futures with aSharpe ratio of 2.2
+–Built fair value and illiquidity-adjusted pricing models, capturing30% volumein far SR1 contracts
+–Optimized Autospreader and ADL execution rules, improving fill rates by50% YoYthrough order flow analytics
+–Managed a$800K proprietary portfoliowith VaR- and scenario-based risk models and dynamic position sizing
+–Created 25+ automated strategies and real-time dashboards, boosting execution efficiency by75%.
+•Tinysteps Bengaluru, India
+Data Analyst May 2019 – Jul 2019
+–Cleaned and transformed school datasets usingPandas, NumPy, and SciPy, performing EDA to uncover trends.
+–Built supervised ML models usingScikit-learnto predict student outcomes, validating insights with statistical testing.
+Leadership & Awards
+•Cognizance, IIT RoorkeeNov 2017 – Mar 2021
+Head – Finance & Sponsorship
+–Spearheaded a team of 135+ members to raise a fund of12 Million INRfor the annual fest.
+–Revamped the publicity scheme for 22 departments resulting in an escalation of tier-2 sponsors by 25% than previous
+–Managed a budget of 13 million INR to meet the expenses as regards to logistics and event conduction
+•Jawahar Bhawan, IIT RoorkeeSep 2019 – Mar 2021
+Sports Secretary
+–Elected by 600 students as Hostel Representative; led team to secure 2nd rank among 12 hostels.
+–Led the Inter Bhawan team of the 2020 year resulting in the Jawahar Bhawan to get 2nd among 12 Bhawans.
+•Student Mentorship Programme, IIT RoorkeeJul 2018 – Nov 2018
+Undergraduate Teaching Assistant
+–Mentored undergraduates in Introductory Programming; developed new strategies to overcome language barriers.

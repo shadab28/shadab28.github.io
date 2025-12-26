@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resume — Shadab</title>
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <title>Resume — Mohd Shadab Siddiqui</title>
+  <!-- Use CDN assets so page works without local vendor/ folder -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="css/grayscale.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">Shadab</a>
-    <div class="collapse navbar-collapse">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+        <li class="nav-item active"><a class="nav-link" href="resume.html">Resume</a></li>
       </ul>
     </div>
   </nav>
@@ -24,12 +28,13 @@
     <div class="row">
       <div class="col-md-3 text-center">
         <img src="images/myprofessionalphotopng2.png" alt="photo" class="img-fluid rounded-circle mb-3" style="max-width:180px;">
-        <a class="btn btn-primary btn-block" href="assets/Shadab_Quant.pdf" target="_blank">Download Resume (PDF)</a>
+        <a class="btn btn-primary btn-block" href="assets/Shadab_Quant.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
       </div>
       <div class="col-md-9">
-        <h1>Shadab</h1>
-        <p class="lead">Quantitative Analyst · Data Scientist · Developer</p>
-        <p>Contact: <a href="mailto:you@example.com">you@example.com</a> · +1 (555) 902-8832 · Location</p>
+        <h1 class="mb-0">Mohd Shadab Siddiqui</h1>
+        <p class="lead">Quant Trader — Rates &amp; STIRs · Quantitative Research · System Design</p>
+        <p class="mb-0">Email: <a href="mailto:msiddiqui@ce.iitr.ac.in">msiddiqui@ce.iitr.ac.in</a> · Mobile: +91-9893592931</p>
+        <p>Location: New Delhi, India · <a href="https://linkedin.com/in/mohdshadabsiddiqui" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
   </header>
@@ -37,41 +42,96 @@
   <main class="container mt-4">
     <section>
       <h3>Summary</h3>
-      <p>Quantitative analyst with experience in statistical modelling, data pipelines, and engineering production-ready analyses. Comfortable with Python, SQL, and visualization tools.</p>
+      <p>Quant trader and quantitative developer with production trading experience across interest rate futures, HFT strategies and execution systems. Strong background in market microstructure, execution analytics, and building low-latency Python infrastructure.</p>
     </section>
 
     <section class="mt-4">
       <h3>Technical Skills</h3>
       <ul>
-        <li>Languages: Python, SQL, R</li>
-        <li>Libraries: pandas, numpy, scikit-learn, tensorflow</li>
-        <li>Tools: Git, Docker, Airflow</li>
+        <li>Languages: Python (AsyncIO, Multiprocessing), C++, SQL (PostgreSQL), Redis</li>
+        <li>Quant libraries: pandas, NumPy, Polars, Numba, scikit-learn, SciPy, PyTorch</li>
+        <li>Infra &amp; tools: Docker, Linux, Git, XTS-API, WebSocket, Bloomberg, Trading Technologies, Reuters</li>
+        <li>Core concepts: Market microstructure, Limit Order Book dynamics, Greeks, VaR/CVaR, Monte Carlo</li>
       </ul>
     </section>
 
     <section class="mt-4">
       <h3>Experience</h3>
-      <div>
-        <h5>Quant Researcher — Example Firm</h5>
-        <p class="text-muted">Date range</p>
+
+      <div class="mb-3">
+        <h5>Manager - New Business Initiatives — CKA Birla Group</h5>
+        <p class="text-muted">Sept 2025 – Nov 2025 · New Delhi, India</p>
         <ul>
-          <li>Built factor models and backtests to evaluate trading hypotheses.</li>
-          <li>Produced automated data pipelines and model monitoring dashboards.</li>
+          <li>Designed systematic equity strategies (Piotroski + Momentum), delivering alpha with a Sharpe Ratio of 2.6.</li>
+          <li>Executed due diligence and developed robust DCF models to evaluate acquisition synergies.</li>
         </ul>
       </div>
+
+      <div class="mb-3">
+        <h5>Quantitative Trader — NX Block Trades</h5>
+        <p class="text-muted">Oct 2024 – Aug 2025 · Noida, India</p>
+        <ul>
+          <li>Designed HFT strategies in Indian F&O, delivering 32% annualized returns with a Sharpe Ratio of 3.2.</li>
+          <li>Built low-latency Python execution infrastructure (XTS API) with sub-20ms routing to optimize fill rates.</li>
+          <li>Managed a 15 Crore INR book and engineered custom scanners for real-time arbitrage.</li>
+        </ul>
+      </div>
+
+      <div class="mb-3">
+        <h5>SOFR Interest Rates Curve &amp; Algo Trader — Futures First</h5>
+        <p class="text-muted">Sep 2021 – Sep 2024 · Gurugram, India</p>
+        <ul>
+          <li>Developed 6 quantitative trading strategies for SR3, ZQ, and SR1 futures with a Sharpe ratio of 2.2.</li>
+          <li>Built fair value and illiquidity-adjusted pricing models, and optimized autospreader and ADL execution rules.</li>
+          <li>Managed an $800K proprietary portfolio with VaR- and scenario-based risk models.</li>
+        </ul>
+      </div>
+
+      <div class="mb-3">
+        <h5>Data Analyst — Tinysteps</h5>
+        <p class="text-muted">May 2019 – Jul 2019 · Bengaluru, India</p>
+        <ul>
+          <li>Cleaned and transformed datasets using pandas and NumPy; built supervised ML models to predict student outcomes.</li>
+        </ul>
+      </div>
+
     </section>
 
     <section class="mt-4">
       <h3>Education</h3>
-      <p>MS in Quantitative Finance — University</p>
+      <p><strong>Indian Institute of Technology (IIT), Roorkee</strong> — Bachelor of Technology in Civil Engineering (76.46%)<br>
+      2017 – 2021 · Roorkee, India</p>
+      <ul>
+        <li>Secured All India Rank 4200 in JEE Advanced 2017 (Top 0.3%).</li>
+        <li>Awarded Best B.Tech Project by Director, IIT Roorkee.</li>
+      </ul>
+      <p class="mb-0"><strong>Certifications &amp; Achievements:</strong> FRM Level 1 Cleared (Nov 2024); FRM Level 2 Appeared (Nov 2025); KVPY Fellow (All India Rank 1194).</p>
     </section>
 
     <section class="mt-4">
-      <h3>Projects</h3>
+      <h3>Projects &amp; Selected Work</h3>
       <ul>
-        <li>Strategy Backtest — Python backtesting system for factor strategies.</li>
-        <li>Interactive Dashboard — Web-based model performance visualizations.</li>
+        <li>Built low-latency execution infrastructure (XTS API) with sub-20ms routing and automated strategy rollouts.</li>
+        <li>Developed fair-value pricing and illiquidity-adjusted models for interest rate futures.</li>
+        <li>Created 25+ automated strategies and real-time dashboards for monitoring performance and execution quality.</li>
       </ul>
+    </section>
+
+    <section class="mt-4">
+      <h3>Leadership &amp; Awards</h3>
+      <ul>
+        <li>Head – Finance & Sponsorship, Cognizance, IIT Roorkee: led 135+ members and raised 12 Million INR.</li>
+        <li>Sports Secretary, Jawahar Bhawan: elected representative, led teams to high rankings.</li>
+        <li>Undergraduate TA & Mentor: taught introductory programming and mentored students.</li>
+      </ul>
+    </section>
+
+    <section class="mt-4">
+      <h3>Resume (PDF)</h3>
+      <p>You can view the uploaded PDF below or download it using the button on the left.</p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="assets/Shadab_Quant.pdf" allowfullscreen style="border:1px solid #ddd;" title="Resume PDF"></iframe>
+      </div>
     </section>
   </main>
 
@@ -81,8 +141,8 @@
     </div>
   </footer>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/site.js"></script>
 </body>
 </html>
