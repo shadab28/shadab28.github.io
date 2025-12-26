@@ -1,89 +1,175 @@
 <!doctype html>
 <html lang="en">
-<!doctype html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mohd Shadab Siddiqui — Quant Trader</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Mohd Shadab Siddiqui — Portfolio</title>
+    <link rel="stylesheet" href="https://themewagon.github.io/picto/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://themewagon.github.io/picto/assets/css/theme.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#mainNav" data-offset="70">
 
-    <header class="bg-light py-5">
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shadab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html#summary">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="home" class="header-hero text-white" style="background:#0b1226;padding:100px 0;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                    <img src="images/myprofessionalphotopng2.png" alt="photo" class="img-fluid rounded-circle mb-3" style="max-width:180px;">
-                    <a class="btn btn-outline-primary btn-block" href="assets/Shadab_Quant.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+                <div class="col-lg-6">
+                    <h1 class="display-4">Mohd Shadab Siddiqui</h1>
+                    <p class="lead">Quant Trader — Rates &amp; STIRs · Quantitative Research · System Design</p>
+                    <p class="mb-4">Quant trader and quantitative developer with production trading experience across interest rate futures, HFT strategies and execution systems. Strong background in market microstructure and execution analytics.</p>
+                    <a href="resume.html#summary" class="btn btn-primary mr-2">View Resume</a>
+                    <a href="contact.html" class="btn btn-outline-light">Contact</a>
                 </div>
-                <div class="col-md-9">
-                    <h1 class="mb-1">Mohd Shadab Siddiqui</h1>
-                    <p class="lead mb-2">Quant Trader — Rates &amp; STIRs · Quantitative Research · System Design</p>
-                    <p class="mb-1">Email: <a href="mailto:msiddiqui@ce.iitr.ac.in">msiddiqui@ce.iitr.ac.in</a> · Mobile: +91-9893592931</p>
-                    <p>Location: New Delhi, India · <a href="https://linkedin.com/in/mohdshadabsiddiqui" target="_blank" rel="noopener">LinkedIn</a></p>
-                    <p class="mt-3"><a class="btn btn-primary mr-2" href="resume.html#summary">View Full Resume</a><a class="btn btn-secondary" href="contact.html">Contact</a></p>
+                <div class="col-lg-6 text-center">
+                    <img src="images/myprofessionalphotopng2.png" alt="photo" class="img-fluid rounded-circle" style="max-width:260px;border:6px solid rgba(255,255,255,0.08)">
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container my-5">
-        <section class="mb-5">
-            <h2>About</h2>
-            <p>Quant trader and quantitative developer with production trading experience across interest rate futures, HFT strategies and execution systems. Strong background in market microstructure, execution analytics, and building low-latency Python infrastructure.</p>
-        </section>
-
-        <section class="mb-5">
-            <h2>Core Skills</h2>
+    <!-- Services / Process -->
+    <section id="process" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-4">
+                <div class="col-md-12">
+                    <h2>Work Process</h2>
+                    <p class="text-muted">Research → Analyze → Design → Launch — Applied to quantitative trading and execution systems.</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-sm-6">
-                    <ul>
-                        <li>Python, C++, PostgreSQL, Redis</li>
-                        <li>pandas, NumPy, Polars, Numba, scikit-learn, PyTorch</li>
-                    </ul>
+                <div class="col-md-3 text-center">
+                    <h4>1. Research</h4>
+                    <p>Market microstructure analysis and data-driven signal discovery.</p>
                 </div>
-                <div class="col-sm-6">
-                    <ul>
-                        <li>Docker, Linux, Git, XTS-API, WebSocket</li>
-                        <li>Market microstructure, LOB dynamics, VaR/CVaR, Monte Carlo</li>
-                    </ul>
+                <div class="col-md-3 text-center">
+                    <h4>2. Analyze</h4>
+                    <p>Backtesting, statistical validation, and risk assessment.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h4>3. Design</h4>
+                    <p>Strategy and infrastructure design for low-latency execution.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h4>4. Launch</h4>
+                    <p>Production rollout, monitoring, and continuous optimization.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="mb-5">
-            <h2>Selected Projects & Work</h2>
-                    <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Low-latency Execution Infrastructure</h5>
-                    <p class="card-text">Built sub-20ms Python execution stack (XTS API) and autospreader systems to improve fill rates and execution quality.</p>
-                    <p><a href="resume.html#projects" class="stretched-link">Read more</a></p>
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Selected Work</h2>
                 </div>
             </div>
-        <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Interest Rates Pricing Models</h5>
-            <p class="card-text">Developed fair-value and illiquidity-adjusted pricing models for futures, improving pricing accuracy and strategy performance.</p>
-            <p><a href="resume.html#projects" class="stretched-link">Read more</a></p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://themewagon.github.io/picto/assets/card-1-D83uj-qZ.png" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Low-latency Execution Infrastructure</h5>
+                            <p class="card-text">Sub-20ms Python execution stack, autospreader and execution analytics.</p>
+                            <a href="resume.html#projects" class="btn btn-sm btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://themewagon.github.io/picto/assets/card-2-BJ8-9N8h.png" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Interest Rates Pricing Models</h5>
+                            <p class="card-text">Fair-value and illiquidity-adjusted pricing models for futures.</p>
+                            <a href="resume.html#projects" class="btn btn-sm btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://themewagon.github.io/picto/assets/card-3-Ka1ll87R.png" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Automated Strategy Suite</h5>
+                            <p class="card-text">25+ automated strategies with monitoring dashboards and risk controls.</p>
+                            <a href="resume.html#projects" class="btn btn-sm btn-primary">Read more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Automated Strategy Suite</h5>
-            <p class="card-text">Created 25+ automated strategies and monitoring dashboards for real-time performance and execution analytics.</p>
-            <p><a href="resume.html#projects" class="stretched-link">Read more</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Testimonials</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="blockquote p-3 bg-white">
+                        <p>"Delivered a product that exceeded expectations; excellent execution and communication."</p>
+                        <footer class="blockquote-footer">Esther Howard, Managing Director</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote p-3 bg-white">
+                        <p>"Deep domain knowledge and reliable delivery on complex trading infrastructure."</p>
+                        <footer class="blockquote-footer">Ali Haider, COO</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote p-3 bg-white">
+                        <p>"Professional, timely, and creative — great results."</p>
+                        <footer class="blockquote-footer">Elon Max, Managing Director</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container text-center">
+            <h2>Let's discuss your project</h2>
+            <p class="mb-4">I'm available for freelance or full-time opportunities. Reach out via email or use the contact page.</p>
+            <a href="contact.html" class="btn btn-light">Contact</a>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <small>© 2025 Mohd Shadab Siddiqui — Built with Picto layout adaptation</small>
+        </div>
+    </footer>
+
+    <script src="https://themewagon.github.io/picto/assets/js/jquery.min.js"></script>
+    <script src="https://themewagon.github.io/picto/assets/js/bootstrap.bundle.min.js"></script>
     <script src="js/site.js"></script>
 
 </body>
