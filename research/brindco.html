@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brindco: NIFTY 50 Options Wheel Research | Mohd Shadab Siddiqui</title>
+  <meta name="description" content="Case study: a systematic short-put, assignment and covered-call wheel across NIFTY 50 stock options, with point-in-time constituents, physical settlement, margin, costs and leverage modelled. Backtest December 2019 to June 2026.">
+  <meta name="author" content="Mohd Shadab Siddiqui">
+  <meta name="theme-color" content="#0b0e11">
+  <link rel="canonical" href="https://shadab28.github.io/research/brindco.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mohd Shadab Siddiqui">
+  <meta property="og:title" content="Brindco: NIFTY 50 Options Wheel Research">
+  <meta property="og:description" content="Systematic stock-options wheel across the NIFTY 50: methodology, data validation, portfolio construction, risk, results and limitations.">
+  <meta property="og:url" content="https://shadab28.github.io/research/brindco.html">
+  <meta property="og:image" content="https://shadab28.github.io/assets/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@300;400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="/">SHADAB SIDDIQUI</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav__menu" id="nav-menu">
+        <nav aria-label="Sections">
+          <ul class="nav__links">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#research" aria-current="true">Research</a></li>
+            <li><a href="/#markets">Markets</a></li>
+            <li><a href="/#education">Education</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__ext">
+          <a href="https://www.linkedin.com/in/mohdshadabsiddiqui/" rel="me noopener" target="_blank">LinkedIn</a>
+          <a href="https://github.com/shadab28" rel="me noopener" target="_blank">GitHub</a>
+          <a class="is-cv" href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <p class="crumbs"><a href="/#research">Research</a> / 01 / Brindco</p>
+
+      <header class="cs-hero">
+        <span class="status status--bt">Backtest · case study</span>
+        <h1>Brindco: a systematic options wheel across the NIFTY 50</h1>
+        <p class="lede">A short-put, assignment and covered-call cycle run across the index’s constituents, with the parts that usually get assumed away modelled explicitly: physical delivery, margin, liquidity, corporate actions, dividends and costs.</p>
+        <dl class="cs-meta">
+          <div><dt>Universe</dt><dd>NIFTY 50, point-in-time</dd></div>
+          <div><dt>Instruments</dt><dd>Monthly stock options and cash equity</dd></div>
+          <div><dt>Window</dt><dd class="num">31 Dec 2019 – 30 Jun 2026</dd></div>
+          <div><dt>Capital</dt><dd>₹2 crore, leverage 1–5×</dd></div>
+        </dl>
+      </header>
+
+      <div class="cs">
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#question">Research question</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="#portfolio">Portfolio construction</a></li>
+            <li><a href="#risk">Risk</a></li>
+            <li><a href="#validation">Validation</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#limitations">Limitations</a></li>
+          </ol>
+        </nav>
+
+        <div class="cs-body">
+          <section id="question" aria-labelledby="h-question">
+            <h2 id="h-question">Research question</h2>
+            <p>The wheel is usually presented as a single-stock income trade: sell a cash-secured put, take delivery if assigned, sell covered calls until the shares are called away. Two things are usually missing. One is a realistic portfolio across many names, sized under margin. The other is honest treatment of the delivery leg, where most of the risk sits.</p>
+            <p><strong>The question:</strong> across the NIFTY 50, with constituents as they stood at each expiry and every leg priced from exchange data, does a ranked, leveraged wheel beat buy-and-hold on a risk-adjusted basis? And at what leverage does extra premium stop paying for the stock losses it brings?</p>
+            <div class="callout"><b>Why the window starts in late 2019.</b> NSE moved all stock derivatives to physical settlement by October 2019. Before then, an in-the-money stock put settled in cash, so the assignment and covered-call legs that define the wheel did not exist. The backtest’s first signal is the close of 31 December 2019.</div>
+          </section>
+
+          <section id="methodology" aria-labelledby="h-method">
+            <h2 id="h-method">Methodology</h2>
+            <p>An event-driven engine steps through every trading day. Decisions use data up to the close of day <em>t</em> and fill at the close of <em>t+1</em>. No decision reads a later price.</p>
+            <ol class="steps">
+              <li><b>Select.</b> At each monthly expiry, rank current NIFTY 50 members by a trend score, keep names above the threshold, and take the top 20.</li>
+              <li><b>Sell puts.</b> Sell the monthly put at or below spot × (1 − 4%) on strikes that traded at least 10 contracts, capped at 10% of the day’s volume.</li>
+              <li><b>Settle.</b> At expiry, compare the strike with the final settlement price. An out-of-the-money put expires. An in-the-money put is delivered if cash covers it.</li>
+              <li><b>Hold and write calls.</b> Assigned shares collect dividends and carry covered calls at or above spot × (1 + 3%), never below the effective cost basis.</li>
+              <li><b>Exit.</b> Shares called away end the cycle. If a stock closes 15% below its price on the day the put was sold, the put is bought back and nothing is delivered.</li>
+            </ol>
+            <p>Every figure is net of brokerage, statutory charges (STT, exchange and SEBI fees, stamp duty, GST) and a per-leg slippage schedule. Idle cash earns the 3-month T-bill, which is also the Sharpe hurdle.</p>
+          </section>
+
+          <section id="data" aria-labelledby="h-data">
+            <h2 id="h-data">Data</h2>
+            <ul class="bullets">
+              <li><strong>Prices:</strong> raw NSE F&amp;O and cash-market bhavcopies, covering the legacy format and the UDiFF format that replaced it in July 2024, read directly from the exchange files.</li>
+              <li><strong>Universe:</strong> NIFTY 50 membership rebuilt day by day from NSE Indices press releases. Names that were later demoted or delisted stay selectable while they were members.</li>
+              <li><strong>Lot sizes:</strong> taken from the contract files at each expiry, including mid-life revisions.</li>
+              <li><strong>Corporate actions:</strong> splits, bonuses and rights detected from strike adjustments in the F&amp;O files, demergers handled with explicit values, and cash dividends parsed from NSE announcements and paid on the holding leg.</li>
+              <li><strong>Symbol changes and terminations:</strong> renamed symbols are mapped, and contracts that terminated mid-window (for example, HDFC on its merger) settle at the cash-market close.</li>
+              <li><strong>Signals and benchmark:</strong> 15-minute and daily bars for the trend score, and the NIFTY 50 Total Return Index from niftyindices.com.</li>
+            </ul>
+          </section>
+
+          <section id="portfolio" aria-labelledby="h-portfolio">
+            <h2 id="h-portfolio">Portfolio construction</h2>
+            <p>The book holds one wheel per name, at most 20 names. The target notional per name is <code>L × NAV / 20</code>, so no name exceeds about 5% of target exposure. Names are allocated in rank order.</p>
+            <ul class="bullets">
+              <li><strong>Covered calls come first.</strong> No new put is sold while assigned shares are waiting for a call.</li>
+              <li><strong>Margin decides size.</strong> Put margin is modelled as strike × quantity / L, and entries may not push utilisation above 100% of NAV.</li>
+              <li><strong>No borrowing.</strong> Cash may never go negative. An in-the-money put that cash cannot cover is realised at intrinsic value rather than delivered.</li>
+              <li><strong>Leverage is a tested parameter.</strong> The same rules run at 1×, 2×, 3×, 4× and 5×, and results are compared side by side.</li>
+            </ul>
+          </section>
+
+          <section id="risk" aria-labelledby="h-risk">
+            <h2 id="h-risk">Risk</h2>
+            <p>The wheel is short downside volatility on each name. Risk is concentrated in delivery: an assigned stock that keeps falling carries the full equity loss while the covered call caps the recovery.</p>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Stress windows at 3× leverage</caption>
+                <thead><tr><th scope="col">Stress window (3×)</th><th scope="col">Return</th><th scope="col">Max DD in window</th><th scope="col">Peak margin use</th><th scope="col">Peak gross exposure</th></tr></thead>
+                <tbody>
+                  <tr><td>Covid crash, Feb – Mar 2020</td><td>−18.8%</td><td>−19.2%</td><td>21%</td><td>0.63× NAV</td></tr>
+                  <tr><td>Rate-hike sell-off, Jan – Jun 2022</td><td>−13.2%</td><td>−13.2%</td><td>67%</td><td>2.04× NAV</td></tr>
+                  <tr><td>FPI outflow correction, Sep 2024 – Mar 2025</td><td>−21.9%</td><td>−22.3%</td><td>79%</td><td>2.43× NAV</td></tr>
+                  <tr><td>Tariff shock, Apr 2025</td><td>−5.3%</td><td>−5.6%</td><td>39%</td><td>1.18× NAV</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">No forced liquidations occurred in any window.</p>
+            <p>The worst episode was the 2024–25 correction, not March 2020. The book was almost entirely in cash when NIFTY made its high on 26 September 2024, and the next day the rules sold a full book of puts, all on the October expiry. That one expiry did most of the damage: six puts were delivered, six more had no cash behind them and were closed at intrinsic value, and the stop-loss bought back three before expiry. NAV fell from ₹6.09 crore to ₹4.74 crore over five expiries while the index fell 15%, and at 3× the drawdown had not recovered by the end of the window.</p>
+            <p>The lesson is expiry concentration rather than stock selection. When every short put shares one expiry, a single month’s gap becomes a portfolio event. Staggering entries across expiries is the obvious next test.</p>
+            <figure class="figure chart">
+              <div class="chart__legend" aria-hidden="true"><span><i></i>Wheel, 3× leverage</span><span><i class="b"></i>NIFTY 50 TRI</span></div>
+              <div class="chart__frame chart__frame--short" data-chart="dd" data-label="Drawdown from running peak: wheel at 3× leverage against the NIFTY 50 total return index">
+                <div class="chart__tip" role="status" aria-live="polite"></div>
+              </div>
+              <figcaption class="chart__cap">Drawdown from running peak, weekly marks. The daily-mark maximum is −22.25% for the wheel and −38.27% for the TRI.</figcaption>
+            </figure>
+          </section>
+
+          <section id="validation" aria-labelledby="h-validation">
+            <h2 id="h-validation">Validation</h2>
+            <p>The data is checked against independent sources as a set of named, repeatable tests, alongside an engine test suite that includes look-ahead checks. The checks live in the project’s test suite, so they can be rerun whenever the data changes.</p>
+            <ul class="checks">
+              <li><b>Constituent history</b>Rebuilt membership matches NSE’s official list, every change has a dated release, and no name is a member before its inclusion date.</li>
+              <li><b>Trading calendar</b>All 1,687 cash-market trading days in the research set have a matching F&amp;O file, with trade dates checked inside each file.</li>
+              <li><b>Bhavcopies</b>Every cached option row traces back to the raw NSE file for that day, over 21 million rows.</li>
+              <li><b>Settlement price</b>The expiry settlement rule was checked against the expiring future’s settle on 4,625 name-expiry pairs, with a median gap of 0.23 bp. No assignment changes.</li>
+              <li><b>Option-price adjustments</b>Strike and lot adjustments around splits, bonuses and rights are checked against the exchange files, so positions carry across ex-dates on adjusted terms.</li>
+              <li><b>Lot sizes</b>Lot sizes are taken from contract data at each expiry, and a position is never sized with a guessed lot.</li>
+              <li><b>Rankings coverage</b>Each expiry’s ranking is checked for coverage of current members. Gaps are sized separately rather than filled.</li>
+              <li><b>Ledger reconciliation</b>Cash, positions and P&amp;L reconcile daily, and the engine refuses to fabricate a missing price, lot or expiry.</li>
+            </ul>
+            <p>Where a check found exceptions, such as a small number of contract-listing gaps or a missing day that needed reconstruction, the exception was logged and its effect on trades was measured before results were reported.</p>
+          </section>
+
+          <section id="results" aria-labelledby="h-results">
+            <h2 id="h-results">Results</h2>
+            <p>At the chosen setting of 3× leverage, a 4% put offset, a 3% call offset and a 15% put stop, the wheel compounded at <strong>18.05%</strong> a year with a <strong>−22.25%</strong> maximum drawdown. Over the same window the NIFTY 50 TRI returned 12.23% a year with a −38.27% drawdown.</p>
+            <figure class="figure chart">
+              <div class="chart__legend" aria-hidden="true"><span><i></i>Wheel, 3× leverage</span><span><i class="b"></i>NIFTY 50 TRI</span></div>
+              <div class="chart__frame" data-chart="nav" data-label="Growth of 100: wheel at 3× leverage against the NIFTY 50 total return index, December 2019 to June 2026">
+                <div class="chart__tip" role="status" aria-live="polite"></div>
+              </div>
+              <figcaption class="chart__cap">Growth of 100, weekly. Backtest, ₹2 crore start, net of costs and slippage. Use the arrow keys on the chart to step through dates.</figcaption>
+            </figure>
+
+            <h3>Leverage: where extra premium stops paying</h3>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Results by leverage against benchmarks</caption>
+                <thead><tr><th scope="col">Series</th><th scope="col">CAGR</th><th scope="col">Vol</th><th scope="col">Sharpe</th><th scope="col">Sortino</th><th scope="col">Max DD</th><th scope="col">Calmar</th></tr></thead>
+                <tbody>
+                  <tr><td>Wheel 1×</td><td>9.70%</td><td>4.89%</td><td>0.88</td><td>1.22</td><td>−6.54%</td><td>1.48</td></tr>
+                  <tr><td>Wheel 2×</td><td>15.56%</td><td>10.67%</td><td>0.94</td><td>1.31</td><td>−15.67%</td><td>0.99</td></tr>
+                  <tr class="is-pick"><td>Wheel 3× (chosen)</td><td>18.05%</td><td>13.82%</td><td>0.91</td><td>1.26</td><td>−22.25%</td><td>0.81</td></tr>
+                  <tr><td>Wheel 4×</td><td>17.60%</td><td>16.35%</td><td>0.77</td><td>1.05</td><td>−29.99%</td><td>0.59</td></tr>
+                  <tr><td>Wheel 5×</td><td>15.86%</td><td>19.29%</td><td>0.60</td><td>0.82</td><td>−35.50%</td><td>0.45</td></tr>
+                  <tr class="is-bench"><td>NIFTY 50 TRI, buy and hold</td><td>12.23%</td><td>17.99%</td><td>0.45</td><td>0.61</td><td>−38.27%</td><td>0.32</td></tr>
+                  <tr class="is-bench"><td>Top-20 equal weight, rebalanced</td><td>9.88%</td><td>10.46%</td><td>0.47</td><td>0.65</td><td>−17.00%</td><td>0.58</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Sharpe and Sortino are in excess of the India 3-month T-bill. Same window and capital for every series.</p>
+            <p>Moving from 2× to 3× is the last step where extra premium more than pays for extra losses on the delivery leg: each additional rupee of premium costs ₹0.30. From 3× to 4×, it costs ₹1.29. Past 3×, CAGR falls while drawdown keeps growing.</p>
+            <p>At 3×, the book ran 505 put cycles. <span class="num">18.8%</span> were assigned, <span class="num">87%</span> of assigned positions were eventually called away, and delivered stock was held for about 129 days on average.</p>
+            <div class="callout"><b>The case for 2× instead.</b> 2× has the better Sharpe (0.94 against 0.91) and Calmar (0.99 against 0.81), and its drawdown recovered within the window. 3× buys 2.5 more points of CAGR with 6.6 more points of drawdown. That is a preference, not a clear win.</div>
+          </section>
+
+          <section id="limitations" aria-labelledby="h-limitations">
+            <h2 id="h-limitations">Limitations</h2>
+            <ul class="bullets">
+              <li><strong>Parameters were chosen in-sample.</strong> Leverage, strike offsets, the stop-loss and the ranking threshold were all set after seeing results on the same window. A walk-forward test (fit 2019–2023, test 2024–2026) should decide between neighbouring settings.</li>
+              <li><strong>One path, few events.</strong> The window holds 78 monthly expiries, and the worst episode is essentially one expiry. The tails, and so the leverage choice, rest on very few independent observations.</li>
+              <li><strong>Unfunded in-the-money puts are probably flattered.</strong> The engine closes them at intrinsic value at expiry. In practice brokers square these off earlier, at prices that still carry time value and spread.</li>
+              <li><strong>Margin is simplified.</strong> The model uses strike × quantity / L, not SPAN plus exposure margin. It has no exchange margin hikes in stress and no expiry-week delivery-margin ramp.</li>
+              <li><strong>Cash yield helps at low leverage.</strong> Idle cash earns the T-bill rate. A broker pays nothing on idle margin, so earning it requires pledged collateral.</li>
+              <li><strong>Costs are backdated and pre-tax.</strong> The 2026 brokerage schedule is applied from 2019, and results exclude capital-gains tax.</li>
+              <li><strong>The trend score is a risk screen, not a return forecast.</strong> Its correlation with the next month’s stock return is slightly negative. It decides where puts are sold, not what the stock will do.</li>
+              <li><strong>Residual survivorship.</strong> A few members lack intraday bars for part of the window and could not be ranked then. An earlier sensitivity run put the effect at 0.1–1 CAGR point, slightly flattering. It has not been re-run on the final engine.</li>
+            </ul>
+            <p style="margin-top:32px"><a class="study__link" style="position:static" href="/#research">Back to selected research</a></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="border-top:1px solid var(--line)">
+    <div class="wrap footer__inner">
+      <div>
+        <div class="footer__name">Mohd Shadab Siddiqui</div>
+        <div class="footer__tag">Quantitative Markets • FX • Systematic Research</div>
+      </div>
+      <small>© 2026 Mohd Shadab Siddiqui. Backtested results are hypothetical and not investment advice.</small>
+    </div>
+  </footer>
+
+  <script src="/assets/js/brindco-data.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

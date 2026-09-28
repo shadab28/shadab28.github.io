@@ -1,313 +1,516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohd Shadab Siddiqui | FX Trader &amp; Quantitative Researcher</title>
+  <meta name="description" content="Portfolio of Mohd Shadab Siddiqui — Foreign Exchange Trader and quantitative markets researcher focused on systematic trading, derivatives, macro markets, FX execution and risk.">
+  <meta name="author" content="Mohd Shadab Siddiqui">
+  <meta name="theme-color" content="#0b0e11">
+  <link rel="canonical" href="https://shadab28.github.io/">
 
-  <title>Grayscale - Start Bootstrap Theme</title>
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Mohd Shadab Siddiqui">
+  <meta property="og:title" content="Mohd Shadab Siddiqui | FX Trader &amp; Quantitative Researcher">
+  <meta property="og:description" content="Foreign exchange trader and quantitative markets researcher: systematic strategies, derivatives, rates, macro markets and cross-border liquidity.">
+  <meta property="og:url" content="https://shadab28.github.io/">
+  <meta property="og:image" content="https://shadab28.github.io/assets/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mohd Shadab Siddiqui: FX trader and quantitative researcher">
+  <meta property="profile:first_name" content="Mohd Shadab">
+  <meta property="profile:last_name" content="Siddiqui">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohd Shadab Siddiqui | FX Trader &amp; Quantitative Researcher">
+  <meta name="twitter:description" content="Foreign exchange trader and quantitative markets researcher: systematic strategies, derivatives, rates, macro markets and cross-border liquidity.">
+  <meta name="twitter:image" content="https://shadab28.github.io/assets/img/og-card.png">
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,350,350i,700,700i,800,800i,500,500i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@300;400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
 
-  <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
-      <script >
-        document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages;    
-
-  if ("IntersectionObserver" in window) {
-    lazyloadImages = document.querySelectorAll(".lazy");
-    var imageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var image = entry.target;
-          image.src = image.dataset.src;
-          image.classList.remove("lazy");
-          imageObserver.unobserve(image);
-        }
-      });
-    });
-
-    lazyloadImages.forEach(function(image) {
-      imageObserver.observe(image);
-    });
-  } else {  
-    var lazyloadThrottleTimeout;
-    lazyloadImages = document.querySelectorAll(".lazy");
-    
-    function lazyload () {
-      if(lazyloadThrottleTimeout) {
-        clearTimeout(lazyloadThrottleTimeout);
-      }    
-
-      lazyloadThrottleTimeout = setTimeout(function() {
-        var scrollTop = window.pageYOffset;
-        lazyloadImages.forEach(function(img) {
-            if(img.offsetTop < (window.innerHeight + scrollTop)) {
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-            }
-        });
-        if(lazyloadImages.length == 0) { 
-          document.removeEventListener("scroll", lazyload);
-          window.removeEventListener("resize", lazyload);
-          window.removeEventListener("orientationChange", lazyload);
-        }
-      }, 20);
-    }
-
-    document.addEventListener("scroll", lazyload);
-    window.addEventListener("resize", lazyload);
-    window.addEventListener("orientationChange", lazyload);
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohd Shadab Siddiqui",
+    "jobTitle": "Foreign Exchange Trader",
+    "worksFor": { "@type": "Organization", "name": "Aspora" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Roorkee" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" },
+    "url": "https://shadab28.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/mohdshadabsiddiqui/",
+      "https://github.com/shadab28"
+    ],
+    "knowsAbout": ["Foreign exchange", "Quantitative research", "Systematic trading", "Derivatives", "Options", "Interest-rate futures", "SOFR", "Risk management", "Portfolio construction"]
   }
-})
-      </script>
-
+  </script>
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body id="page-top">
+  <!-- ===================================================================
+       Contact details: LinkedIn and email are taken from the CV at
+       assets/Mohd_Shadab_Siddiqui_CV.pdf. To update the CV, overwrite that
+       file and keep its name. The email is set in the Contact section
+       (data-email-user / data-email-domain). See README.md.
+       =================================================================== -->
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-        <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Shadab Siddiqui, back to top">SHADAB SIDDIQUI</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav__menu" id="nav-menu">
+        <nav aria-label="Sections">
+          <ul class="nav__links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#markets">Markets</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__ext">
+          <a href="https://www.linkedin.com/in/mohdshadabsiddiqui/" rel="me noopener" target="_blank">LinkedIn</a>
+          <a href="https://github.com/shadab28" rel="me noopener" target="_blank">GitHub</a>
+          <a class="is-cv" href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="about-section text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-          <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-        </div>
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__trace" aria-hidden="true">
+        <svg viewBox="0 0 1200 360" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="traceFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3e9e7a" stop-opacity="0.10"/>
+              <stop offset="1" stop-color="#3e9e7a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="trace-area" d="M0.0,317.7 L2.2,329.2 L4.3,334.5 L6.5,335.0 L8.7,330.3 L10.9,332.7 L13.0,350.0 L15.2,342.0 L17.4,348.3 L19.6,332.8 L21.7,332.0 L23.9,328.5 L26.1,324.8 L28.3,324.9 L30.4,330.0 L32.6,320.5 L34.8,319.0 L37.0,320.6 L39.1,324.2 L41.3,321.6 L43.5,323.7 L45.7,311.1 L47.8,308.7 L50.0,309.8 L52.2,309.5 L54.3,311.9 L56.5,305.6 L58.7,305.7 L60.9,299.3 L63.0,299.3 L65.2,296.3 L67.4,295.0 L69.6,295.3 L71.7,295.3 L73.9,298.0 L76.1,291.2 L78.3,289.5 L80.4,291.9 L82.6,290.5 L84.8,296.7 L87.0,294.2 L89.1,297.5 L91.3,294.2 L93.5,296.0 L95.7,301.5 L97.8,305.5 L100.0,312.2 L102.2,311.0 L104.3,311.8 L106.5,306.6 L108.7,310.5 L110.9,315.2 L113.0,309.1 L115.2,307.4 L117.4,302.7 L119.6,304.2 L121.7,295.7 L123.9,292.8 L126.1,291.3 L128.3,290.5 L130.4,287.2 L132.6,288.3 L134.8,287.3 L137.0,280.9 L139.1,282.3 L141.3,280.4 L143.5,279.8 L145.7,281.1 L147.8,281.9 L150.0,277.0 L152.2,277.4 L154.3,274.4 L156.5,273.7 L158.7,269.3 L160.9,267.6 L163.0,266.9 L165.2,269.0 L167.4,269.4 L169.6,270.6 L171.7,266.8 L173.9,261.6 L176.1,260.8 L178.3,258.2 L180.4,256.9 L182.6,265.6 L184.8,262.5 L187.0,261.9 L189.1,259.0 L191.3,261.5 L193.5,257.7 L195.7,260.7 L197.8,265.1 L200.0,260.3 L202.2,255.7 L204.3,256.2 L206.5,251.9 L208.7,248.6 L210.9,251.7 L213.0,252.6 L215.2,250.1 L217.4,256.5 L219.6,253.0 L221.7,251.4 L223.9,248.0 L226.1,247.1 L228.3,246.5 L230.4,243.6 L232.6,238.7 L234.8,234.8 L237.0,241.7 L239.1,248.6 L241.3,248.6 L243.5,247.6 L245.7,248.3 L247.8,253.8 L250.0,254.7 L252.2,259.2 L254.3,256.4 L256.5,251.2 L258.7,247.6 L260.9,245.7 L263.0,242.7 L265.2,244.4 L267.4,240.1 L269.6,244.9 L271.7,244.5 L273.9,243.0 L276.1,241.3 L278.3,239.9 L280.4,239.7 L282.6,242.0 L284.8,240.6 L287.0,234.9 L289.1,234.9 L291.3,228.9 L293.5,227.0 L295.7,225.5 L297.8,224.5 L300.0,222.5 L302.2,219.9 L304.3,223.1 L306.5,224.7 L308.7,232.7 L310.9,237.5 L313.0,251.7 L315.2,248.0 L317.4,252.0 L319.6,258.4 L321.7,245.8 L323.9,245.0 L326.1,242.8 L328.3,246.4 L330.4,238.4 L332.6,242.5 L334.8,240.0 L337.0,241.1 L339.1,238.6 L341.3,241.6 L343.5,240.1 L345.7,237.5 L347.8,240.3 L350.0,237.7 L352.2,236.5 L354.3,241.4 L356.5,239.8 L358.7,238.0 L360.9,234.3 L363.0,225.6 L365.2,225.0 L367.4,221.4 L369.6,220.5 L371.7,221.0 L373.9,218.7 L376.1,218.6 L378.3,219.5 L380.4,228.8 L382.6,226.0 L384.8,216.4 L387.0,214.8 L389.1,215.8 L391.3,216.5 L393.5,218.4 L395.7,217.0 L397.8,216.6 L400.0,222.1 L402.2,224.7 L404.3,227.4 L406.5,233.5 L408.7,231.0 L410.9,232.2 L413.0,237.0 L415.2,232.6 L417.4,234.4 L419.6,231.5 L421.7,227.1 L423.9,221.9 L426.1,229.3 L428.3,226.4 L430.4,218.5 L432.6,219.1 L434.8,213.5 L437.0,213.2 L439.1,213.4 L441.3,213.0 L443.5,210.1 L445.7,213.2 L447.8,209.8 L450.0,206.0 L452.2,206.5 L454.3,206.9 L456.5,206.3 L458.7,204.4 L460.9,206.4 L463.0,218.5 L465.2,209.5 L467.4,209.2 L469.6,209.8 L471.7,228.4 L473.9,232.9 L476.1,257.2 L478.3,288.9 L480.4,291.0 L482.6,308.0 L484.8,278.5 L487.0,274.4 L489.1,277.4 L491.3,259.1 L493.5,274.7 L495.7,277.9 L497.8,280.5 L500.0,266.0 L502.2,252.0 L504.3,256.1 L506.5,249.5 L508.7,246.1 L510.9,240.8 L513.0,237.0 L515.2,234.0 L517.4,227.4 L519.6,230.0 L521.7,226.8 L523.9,227.5 L526.1,223.3 L528.3,217.3 L530.4,224.0 L532.6,221.2 L534.8,220.3 L537.0,230.3 L539.1,222.2 L541.3,211.7 L543.5,214.8 L545.7,211.2 L547.8,217.1 L550.0,204.2 L552.2,194.0 L554.3,192.5 L556.5,190.4 L558.7,185.0 L560.9,180.3 L563.0,175.8 L565.2,176.0 L567.4,171.2 L569.6,165.5 L571.7,164.0 L573.9,165.1 L576.1,178.0 L578.3,155.8 L580.4,151.8 L582.6,154.7 L584.8,162.1 L587.0,155.3 L589.1,153.7 L591.3,158.4 L593.5,162.4 L595.7,156.3 L597.8,156.9 L600.0,160.5 L602.2,165.2 L604.3,160.2 L606.5,157.0 L608.7,159.4 L610.9,151.2 L613.0,147.0 L615.2,142.9 L617.4,140.7 L619.6,142.4 L621.7,139.6 L623.9,141.7 L626.1,142.1 L628.3,138.4 L630.4,139.4 L632.6,140.8 L634.8,133.5 L637.0,129.1 L639.1,130.2 L641.3,126.4 L643.5,117.5 L645.7,116.7 L647.8,113.7 L650.0,110.0 L652.2,114.5 L654.3,109.5 L656.5,103.4 L658.7,106.4 L660.9,112.3 L663.0,108.9 L665.2,106.3 L667.4,111.0 L669.6,121.4 L671.7,118.9 L673.9,114.5 L676.1,122.0 L678.3,121.7 L680.4,116.6 L682.6,110.2 L684.8,104.2 L687.0,112.9 L689.1,120.2 L691.3,114.3 L693.5,116.2 L695.7,117.4 L697.8,126.3 L700.0,132.5 L702.2,126.8 L704.3,117.2 L706.5,119.1 L708.7,111.8 L710.9,110.2 L713.0,114.5 L715.2,118.8 L717.4,119.8 L719.6,129.9 L721.7,139.4 L723.9,132.0 L726.1,130.4 L728.3,126.6 L730.4,132.3 L732.6,146.4 L734.8,139.9 L737.0,139.0 L739.1,131.7 L741.3,134.3 L743.5,124.1 L745.7,117.7 L747.8,114.2 L750.0,109.8 L752.2,108.8 L754.3,111.6 L756.5,111.9 L758.7,107.8 L760.9,112.3 L763.0,115.2 L765.2,118.5 L767.4,115.3 L769.6,117.2 L771.7,111.6 L773.9,108.5 L776.1,103.9 L778.3,100.8 L780.4,101.4 L782.6,98.6 L784.8,96.2 L787.0,98.9 L789.1,101.9 L791.3,108.2 L793.5,104.1 L795.7,107.5 L797.8,106.2 L800.0,105.2 L802.2,111.1 L804.3,107.6 L806.5,107.6 L808.7,106.3 L810.9,112.9 L813.0,111.1 L815.2,113.7 L817.4,118.1 L819.6,120.4 L821.7,114.4 L823.9,111.0 L826.1,107.8 L828.3,110.7 L830.4,104.5 L832.6,104.5 L834.8,101.2 L837.0,102.3 L839.1,98.3 L841.3,97.6 L843.5,97.2 L845.7,93.7 L847.8,95.8 L850.0,89.0 L852.2,87.1 L854.3,84.1 L856.5,81.8 L858.7,83.0 L860.9,84.5 L863.0,85.5 L865.2,86.9 L867.4,87.4 L869.6,85.3 L871.7,80.4 L873.9,76.0 L876.1,82.4 L878.3,82.8 L880.4,82.6 L882.6,81.4 L884.8,84.0 L887.0,90.1 L889.1,87.7 L891.3,83.9 L893.5,81.3 L895.7,80.6 L897.8,74.7 L900.0,66.4 L902.2,60.7 L904.3,62.0 L906.5,57.6 L908.7,57.8 L910.9,55.7 L913.0,59.3 L915.2,61.8 L917.4,56.1 L919.6,56.8 L921.7,53.8 L923.9,51.9 L926.1,50.0 L928.3,48.8 L930.4,54.0 L932.6,53.2 L934.8,50.6 L937.0,48.6 L939.1,48.5 L941.3,52.6 L943.5,49.6 L945.7,49.0 L947.8,53.3 L950.0,48.3 L952.2,43.3 L954.3,47.7 L956.5,39.4 L958.7,37.4 L960.9,37.1 L963.0,31.8 L965.2,28.6 L967.4,26.8 L969.6,26.4 L971.7,23.4 L973.9,24.5 L976.1,27.9 L978.3,26.0 L980.4,23.1 L982.6,19.0 L984.8,22.8 L987.0,17.9 L989.1,13.7 L991.3,10.0 L993.5,21.2 L995.7,21.7 L997.8,22.8 L1000.0,29.5 L1002.2,30.5 L1004.3,32.1 L1006.5,38.4 L1008.7,34.5 L1010.9,32.2 L1013.0,26.9 L1015.2,26.0 L1017.4,38.1 L1019.6,35.7 L1021.7,33.8 L1023.9,39.7 L1026.1,42.0 L1028.3,43.1 L1030.4,38.9 L1032.6,38.0 L1034.8,44.6 L1037.0,46.1 L1039.1,53.4 L1041.3,48.7 L1043.5,50.4 L1045.7,40.1 L1047.8,38.4 L1050.0,44.9 L1052.2,45.7 L1054.3,34.9 L1056.5,33.0 L1058.7,29.8 L1060.9,33.3 L1063.0,23.0 L1065.2,24.6 L1067.4,25.4 L1069.6,22.7 L1071.7,25.5 L1073.9,22.7 L1076.1,17.3 L1078.3,18.9 L1080.4,21.9 L1082.6,23.6 L1084.8,24.8 L1087.0,27.4 L1089.1,29.6 L1091.3,26.7 L1093.5,24.3 L1095.7,32.7 L1097.8,29.5 L1100.0,25.8 L1102.2,23.7 L1104.3,30.4 L1106.5,28.0 L1108.7,24.1 L1110.9,20.0 L1113.0,19.2 L1115.2,19.7 L1117.4,21.9 L1119.6,17.9 L1121.7,16.4 L1123.9,15.1 L1126.1,15.3 L1128.3,16.6 L1130.4,17.4 L1132.6,16.6 L1134.8,13.9 L1137.0,20.1 L1139.1,19.8 L1141.3,26.1 L1143.5,28.3 L1145.7,19.8 L1147.8,22.0 L1150.0,21.0 L1152.2,24.8 L1154.3,32.0 L1156.5,45.5 L1158.7,45.8 L1160.9,49.0 L1163.0,50.2 L1165.2,36.1 L1167.4,33.0 L1169.6,37.6 L1171.7,36.6 L1173.9,34.7 L1176.1,40.1 L1178.3,39.2 L1180.4,41.0 L1182.6,43.0 L1184.8,40.3 L1187.0,35.9 L1189.1,35.4 L1191.3,33.1 L1193.5,33.7 L1195.7,32.3 L1197.8,38.0 L1200.0,31.7 L1200,360 L0,360 Z"/>
+          <path class="trace-line" pathLength="1" d="M0.0,317.7 L2.2,329.2 L4.3,334.5 L6.5,335.0 L8.7,330.3 L10.9,332.7 L13.0,350.0 L15.2,342.0 L17.4,348.3 L19.6,332.8 L21.7,332.0 L23.9,328.5 L26.1,324.8 L28.3,324.9 L30.4,330.0 L32.6,320.5 L34.8,319.0 L37.0,320.6 L39.1,324.2 L41.3,321.6 L43.5,323.7 L45.7,311.1 L47.8,308.7 L50.0,309.8 L52.2,309.5 L54.3,311.9 L56.5,305.6 L58.7,305.7 L60.9,299.3 L63.0,299.3 L65.2,296.3 L67.4,295.0 L69.6,295.3 L71.7,295.3 L73.9,298.0 L76.1,291.2 L78.3,289.5 L80.4,291.9 L82.6,290.5 L84.8,296.7 L87.0,294.2 L89.1,297.5 L91.3,294.2 L93.5,296.0 L95.7,301.5 L97.8,305.5 L100.0,312.2 L102.2,311.0 L104.3,311.8 L106.5,306.6 L108.7,310.5 L110.9,315.2 L113.0,309.1 L115.2,307.4 L117.4,302.7 L119.6,304.2 L121.7,295.7 L123.9,292.8 L126.1,291.3 L128.3,290.5 L130.4,287.2 L132.6,288.3 L134.8,287.3 L137.0,280.9 L139.1,282.3 L141.3,280.4 L143.5,279.8 L145.7,281.1 L147.8,281.9 L150.0,277.0 L152.2,277.4 L154.3,274.4 L156.5,273.7 L158.7,269.3 L160.9,267.6 L163.0,266.9 L165.2,269.0 L167.4,269.4 L169.6,270.6 L171.7,266.8 L173.9,261.6 L176.1,260.8 L178.3,258.2 L180.4,256.9 L182.6,265.6 L184.8,262.5 L187.0,261.9 L189.1,259.0 L191.3,261.5 L193.5,257.7 L195.7,260.7 L197.8,265.1 L200.0,260.3 L202.2,255.7 L204.3,256.2 L206.5,251.9 L208.7,248.6 L210.9,251.7 L213.0,252.6 L215.2,250.1 L217.4,256.5 L219.6,253.0 L221.7,251.4 L223.9,248.0 L226.1,247.1 L228.3,246.5 L230.4,243.6 L232.6,238.7 L234.8,234.8 L237.0,241.7 L239.1,248.6 L241.3,248.6 L243.5,247.6 L245.7,248.3 L247.8,253.8 L250.0,254.7 L252.2,259.2 L254.3,256.4 L256.5,251.2 L258.7,247.6 L260.9,245.7 L263.0,242.7 L265.2,244.4 L267.4,240.1 L269.6,244.9 L271.7,244.5 L273.9,243.0 L276.1,241.3 L278.3,239.9 L280.4,239.7 L282.6,242.0 L284.8,240.6 L287.0,234.9 L289.1,234.9 L291.3,228.9 L293.5,227.0 L295.7,225.5 L297.8,224.5 L300.0,222.5 L302.2,219.9 L304.3,223.1 L306.5,224.7 L308.7,232.7 L310.9,237.5 L313.0,251.7 L315.2,248.0 L317.4,252.0 L319.6,258.4 L321.7,245.8 L323.9,245.0 L326.1,242.8 L328.3,246.4 L330.4,238.4 L332.6,242.5 L334.8,240.0 L337.0,241.1 L339.1,238.6 L341.3,241.6 L343.5,240.1 L345.7,237.5 L347.8,240.3 L350.0,237.7 L352.2,236.5 L354.3,241.4 L356.5,239.8 L358.7,238.0 L360.9,234.3 L363.0,225.6 L365.2,225.0 L367.4,221.4 L369.6,220.5 L371.7,221.0 L373.9,218.7 L376.1,218.6 L378.3,219.5 L380.4,228.8 L382.6,226.0 L384.8,216.4 L387.0,214.8 L389.1,215.8 L391.3,216.5 L393.5,218.4 L395.7,217.0 L397.8,216.6 L400.0,222.1 L402.2,224.7 L404.3,227.4 L406.5,233.5 L408.7,231.0 L410.9,232.2 L413.0,237.0 L415.2,232.6 L417.4,234.4 L419.6,231.5 L421.7,227.1 L423.9,221.9 L426.1,229.3 L428.3,226.4 L430.4,218.5 L432.6,219.1 L434.8,213.5 L437.0,213.2 L439.1,213.4 L441.3,213.0 L443.5,210.1 L445.7,213.2 L447.8,209.8 L450.0,206.0 L452.2,206.5 L454.3,206.9 L456.5,206.3 L458.7,204.4 L460.9,206.4 L463.0,218.5 L465.2,209.5 L467.4,209.2 L469.6,209.8 L471.7,228.4 L473.9,232.9 L476.1,257.2 L478.3,288.9 L480.4,291.0 L482.6,308.0 L484.8,278.5 L487.0,274.4 L489.1,277.4 L491.3,259.1 L493.5,274.7 L495.7,277.9 L497.8,280.5 L500.0,266.0 L502.2,252.0 L504.3,256.1 L506.5,249.5 L508.7,246.1 L510.9,240.8 L513.0,237.0 L515.2,234.0 L517.4,227.4 L519.6,230.0 L521.7,226.8 L523.9,227.5 L526.1,223.3 L528.3,217.3 L530.4,224.0 L532.6,221.2 L534.8,220.3 L537.0,230.3 L539.1,222.2 L541.3,211.7 L543.5,214.8 L545.7,211.2 L547.8,217.1 L550.0,204.2 L552.2,194.0 L554.3,192.5 L556.5,190.4 L558.7,185.0 L560.9,180.3 L563.0,175.8 L565.2,176.0 L567.4,171.2 L569.6,165.5 L571.7,164.0 L573.9,165.1 L576.1,178.0 L578.3,155.8 L580.4,151.8 L582.6,154.7 L584.8,162.1 L587.0,155.3 L589.1,153.7 L591.3,158.4 L593.5,162.4 L595.7,156.3 L597.8,156.9 L600.0,160.5 L602.2,165.2 L604.3,160.2 L606.5,157.0 L608.7,159.4 L610.9,151.2 L613.0,147.0 L615.2,142.9 L617.4,140.7 L619.6,142.4 L621.7,139.6 L623.9,141.7 L626.1,142.1 L628.3,138.4 L630.4,139.4 L632.6,140.8 L634.8,133.5 L637.0,129.1 L639.1,130.2 L641.3,126.4 L643.5,117.5 L645.7,116.7 L647.8,113.7 L650.0,110.0 L652.2,114.5 L654.3,109.5 L656.5,103.4 L658.7,106.4 L660.9,112.3 L663.0,108.9 L665.2,106.3 L667.4,111.0 L669.6,121.4 L671.7,118.9 L673.9,114.5 L676.1,122.0 L678.3,121.7 L680.4,116.6 L682.6,110.2 L684.8,104.2 L687.0,112.9 L689.1,120.2 L691.3,114.3 L693.5,116.2 L695.7,117.4 L697.8,126.3 L700.0,132.5 L702.2,126.8 L704.3,117.2 L706.5,119.1 L708.7,111.8 L710.9,110.2 L713.0,114.5 L715.2,118.8 L717.4,119.8 L719.6,129.9 L721.7,139.4 L723.9,132.0 L726.1,130.4 L728.3,126.6 L730.4,132.3 L732.6,146.4 L734.8,139.9 L737.0,139.0 L739.1,131.7 L741.3,134.3 L743.5,124.1 L745.7,117.7 L747.8,114.2 L750.0,109.8 L752.2,108.8 L754.3,111.6 L756.5,111.9 L758.7,107.8 L760.9,112.3 L763.0,115.2 L765.2,118.5 L767.4,115.3 L769.6,117.2 L771.7,111.6 L773.9,108.5 L776.1,103.9 L778.3,100.8 L780.4,101.4 L782.6,98.6 L784.8,96.2 L787.0,98.9 L789.1,101.9 L791.3,108.2 L793.5,104.1 L795.7,107.5 L797.8,106.2 L800.0,105.2 L802.2,111.1 L804.3,107.6 L806.5,107.6 L808.7,106.3 L810.9,112.9 L813.0,111.1 L815.2,113.7 L817.4,118.1 L819.6,120.4 L821.7,114.4 L823.9,111.0 L826.1,107.8 L828.3,110.7 L830.4,104.5 L832.6,104.5 L834.8,101.2 L837.0,102.3 L839.1,98.3 L841.3,97.6 L843.5,97.2 L845.7,93.7 L847.8,95.8 L850.0,89.0 L852.2,87.1 L854.3,84.1 L856.5,81.8 L858.7,83.0 L860.9,84.5 L863.0,85.5 L865.2,86.9 L867.4,87.4 L869.6,85.3 L871.7,80.4 L873.9,76.0 L876.1,82.4 L878.3,82.8 L880.4,82.6 L882.6,81.4 L884.8,84.0 L887.0,90.1 L889.1,87.7 L891.3,83.9 L893.5,81.3 L895.7,80.6 L897.8,74.7 L900.0,66.4 L902.2,60.7 L904.3,62.0 L906.5,57.6 L908.7,57.8 L910.9,55.7 L913.0,59.3 L915.2,61.8 L917.4,56.1 L919.6,56.8 L921.7,53.8 L923.9,51.9 L926.1,50.0 L928.3,48.8 L930.4,54.0 L932.6,53.2 L934.8,50.6 L937.0,48.6 L939.1,48.5 L941.3,52.6 L943.5,49.6 L945.7,49.0 L947.8,53.3 L950.0,48.3 L952.2,43.3 L954.3,47.7 L956.5,39.4 L958.7,37.4 L960.9,37.1 L963.0,31.8 L965.2,28.6 L967.4,26.8 L969.6,26.4 L971.7,23.4 L973.9,24.5 L976.1,27.9 L978.3,26.0 L980.4,23.1 L982.6,19.0 L984.8,22.8 L987.0,17.9 L989.1,13.7 L991.3,10.0 L993.5,21.2 L995.7,21.7 L997.8,22.8 L1000.0,29.5 L1002.2,30.5 L1004.3,32.1 L1006.5,38.4 L1008.7,34.5 L1010.9,32.2 L1013.0,26.9 L1015.2,26.0 L1017.4,38.1 L1019.6,35.7 L1021.7,33.8 L1023.9,39.7 L1026.1,42.0 L1028.3,43.1 L1030.4,38.9 L1032.6,38.0 L1034.8,44.6 L1037.0,46.1 L1039.1,53.4 L1041.3,48.7 L1043.5,50.4 L1045.7,40.1 L1047.8,38.4 L1050.0,44.9 L1052.2,45.7 L1054.3,34.9 L1056.5,33.0 L1058.7,29.8 L1060.9,33.3 L1063.0,23.0 L1065.2,24.6 L1067.4,25.4 L1069.6,22.7 L1071.7,25.5 L1073.9,22.7 L1076.1,17.3 L1078.3,18.9 L1080.4,21.9 L1082.6,23.6 L1084.8,24.8 L1087.0,27.4 L1089.1,29.6 L1091.3,26.7 L1093.5,24.3 L1095.7,32.7 L1097.8,29.5 L1100.0,25.8 L1102.2,23.7 L1104.3,30.4 L1106.5,28.0 L1108.7,24.1 L1110.9,20.0 L1113.0,19.2 L1115.2,19.7 L1117.4,21.9 L1119.6,17.9 L1121.7,16.4 L1123.9,15.1 L1126.1,15.3 L1128.3,16.6 L1130.4,17.4 L1132.6,16.6 L1134.8,13.9 L1137.0,20.1 L1139.1,19.8 L1141.3,26.1 L1143.5,28.3 L1145.7,19.8 L1147.8,22.0 L1150.0,21.0 L1152.2,24.8 L1154.3,32.0 L1156.5,45.5 L1158.7,45.8 L1160.9,49.0 L1163.0,50.2 L1165.2,36.1 L1167.4,33.0 L1169.6,37.6 L1171.7,36.6 L1173.9,34.7 L1176.1,40.1 L1178.3,39.2 L1180.4,41.0 L1182.6,43.0 L1184.8,40.3 L1187.0,35.9 L1189.1,35.4 L1191.3,33.1 L1193.5,33.7 L1195.7,32.3 L1197.8,38.0 L1200.0,31.7"/>
+        </svg>
       </div>
-      <img class="lazy" src.jpg" data-src="img/ipad.png" class="img-fluid" alt="">
-    </div> 
-      </section>
+      <p class="hero__caption" aria-hidden="true">NIFTY 50 TRI · weekly · log scale · 2016–2026</p>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-    <div class="container">
-
-      <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg" alt="">
+      <div class="wrap hero__layout">
+        <div>
+          <p class="hero__name">Mohd Shadab Siddiqui</p>
+          <h1 id="hero-title">
+            <span>Trading Markets.</span>
+            <span>Researching Systems.</span>
+            <span>Managing Risk.</span>
+          </h1>
+          <p class="hero__sub">Foreign Exchange Trader and quantitative markets researcher focused on systematic strategies, derivatives, macro markets and cross-border liquidity.</p>
+          <p class="hero__tags">FX <b>•</b> DERIVATIVES <b>•</b> SYSTEMATIC RESEARCH <b>•</b> MACRO <b>•</b> RISK</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#research">View research</a>
+            <a class="btn" href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">Download resume <small>PDF</small></a>
+          </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Shoreline</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+
+        <aside class="panel" aria-label="Profile summary">
+          <div class="panel__head"><span>SIDDIQUI, MOHD SHADAB</span><span>PROFILE</span></div>
+          <dl>
+            <dt>Desk</dt>
+            <dd><strong>Foreign Exchange Trader</strong>, Aspora, Bangalore</dd>
+            <dt>Coverage</dt>
+            <dd>Cross-border FX, STIR futures, Indian equity and index derivatives</dd>
+            <dt>Prior</dt>
+            <dd>NX Block Trades (systematic equity F&amp;O) · Futures First (SOFR and Fed Funds futures)</dd>
+            <dt>Research</dt>
+            <dd>Options wheel on NIFTY 50 stocks · equity-futures trend · STIR spreads</dd>
+            <dt>Stack</dt>
+            <dd>Python, PostgreSQL, TT / ADL, XTS, Kite Connect</dd>
+            <dt>Education</dt>
+            <dd>IIT Roorkee · FRM Level I</dd>
+          </dl>
+          <div class="panel__foot">Bangalore, India · updated September 2026</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Profile metrics -->
+    <section class="metrics" aria-label="Profile figures">
+      <div class="wrap">
+        <div class="metrics__grid">
+          <div class="metric">
+            <div class="metric__value">$450M<small>/mo</small></div>
+            <p class="metric__label"><b>Cross-border FX flows</b> covered by capital-flow forecasting at Aspora</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value">25+</div>
+            <p class="metric__label"><b>Automated strategies</b> and execution dashboards built on the rates desk</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value">$2M</div>
+            <p class="metric__label"><b>Systematic portfolio</b> managed at NX Block Trades</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value">2.2</div>
+            <p class="metric__label"><b>Sharpe ratio</b>, equity-futures momentum strategy at NX Block Trades</p>
+          </div>
+        </div>
+        <p class="metrics__note">Trading and research context, as reported for the role named. These are not audited returns. Backtests are labelled as backtests.</p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">About</p></div>
+        <div class="about">
+          <h2 id="about-title"><span>Markets first.</span> <span>Systems second.</span> <span>Risk always.</span></h2>
+          <div class="about__body">
+            <p>I started on a rates desk. From 2021 to 2024 at Futures First I traded SOFR and Fed Funds futures (SR3, SR1 and ZQ), built fair-value models for the illiquid back of the curve, and tuned spread execution on Trading Technologies’ Autospreader and ADL. The lesson that stuck: a model is worth what it can be filled at.</p>
+            <p>I then moved to systematic trading in Indian equity derivatives at NX Block Trades. There I owned the full loop for equity-futures and NIFTY / BANKNIFTY options strategies: research, walk-forward validation, cost modelling, and automated execution, with Kelly-based sizing and Monte Carlo drawdown estimates.</p>
+            <p>Today I trade foreign exchange at Aspora, on cross-border payment flows. The work is capital-flow forecasting across currency corridors, FX execution and liquidity analysis, and treasury analytics. Alongside the desk I research systematic macro and derivatives strategies, and I publish the method and its limitations next to the result.</p>
+            <p>The common thread is that the view comes from market structure, the test decides whether it survives, and the risk is set before the trade.</p>
           </div>
         </div>
       </div>
-    </div>
-    <img class="lazy" data-src="img\admin-panel-image-7c1a6dca-515c-41b5-90ca-71343a5af44c-1551931431395.jpeg" width="500" height="400">
-    <img class="lazy" data-src="img\admin-panel-image-0ee8d5a4-791b-4da4-a855-202a670b42af-1534336219529.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-6a8b3eeb-228e-4f68-8543-cc86669876f4-1554362456221.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-8eee95ab-6b8e-41f4-9af7-3134fe0ae0db-1551931680991.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-16acd538-4e98-4c01-bff5-50e59eec9da5-1560251456845.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-23caa5f5-ed8f-491f-8ebe-eb0f11aa1425-1551931814011.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-60be946b-42a3-45e7-856d-33badd174ee6-1559889032817.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-6387740c-8038-4e8c-a481-3728061d433a-1559882678732.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-b7a447f1-7025-4221-a56a-a22b548d3540-1559882678731.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-4e477431-d51a-4a07-81c3-5eac51d6b6f9-1536145885760.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-0dad09e2-f1b3-47dd-9942-6dd120052ef7-1536145716365.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-82414723-8948-42c6-be50-42a03ec749b2-1548929114320.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-c952de0d-9c4e-4fa0-9a2e-e7ad9394a5e8-1548929138801.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-0981f8e0-f439-4c42-aa25-e9d84be46412-1548929218824.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-9e0cb182-7780-4235-98fd-679eb54e937f-1548929167467.jpeg" width="500" height="350">
-    <img class="lazy" pg" data-src="img\admin-panel-image-18995e49-c7c4-43a0-84cd-9ed54971954b-1548929342786.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-677bb550-fe59-4d11-8e45-983426de248c-1557826232946.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-26f7ee61-0b9f-4280-b0d1-63f4be8a75a4-1557826338294.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-268143c9-451d-4e5b-81c4-26525c7d4690-1503479041935.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-e27479d0-4cf6-44f2-bd30-36775c7dd3f9-1503479775383.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-3dff1e18-93e8-411b-9c59-9ee094a134fd-1503479409196.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-e1e58236-f4b5-44d4-8599-546cf4aa59fa-1503479888693.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-216f92b4-7490-4229-8e5d-0f7816f7b176-1503480399405.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-f8120857-c6be-46a7-8e84-c0eb871526c3-1549871988329.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-7afe0ed5-2688-49c9-a36f-12da578b6dd3-1549872018042.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-6994e5fc-5d17-4691-8d4a-74437dabc5f0-1549872046159.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-d96a7cd2-2cc4-4f3d-8476-6ed55a352e88-1549872157317.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-1f06fd34-66f5-4c51-845f-a38bbcae5022-1549872288383.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-90f39fba-7008-4206-8c94-74e6b7649a2b-1557474108525.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-a9b254de-339a-45c3-a00b-1c568e9e3ccf-1557474382256.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-9f274bf1-bfa3-43b8-928c-66bfb101610b-1557474595079.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-0397f9b4-a025-4259-9e62-cfa0bccac66c-1557474332434.jpeg" width="500" height="350">
-    <img class="lazy" data-src="img\admin-panel-image-f758267f-b81e-4aa0-97be-2c90ab98e33c-1531373899814.jpeg" width="500" height="350">
-    <div>
-      <!-- Project One Row -->
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-01.jpg" alt="">
-        </div>
-        <div class="col-lg-6">
-          <div class="bg-black text-center h-100 project">
-            <div class="d-flex h-100">
-              <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Misty</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                <hr class="d-none d-lg-block mb-0 ml-0">
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Experience</p></div>
+        <div>
+          <h2 id="experience-title">Three desks: rates, equity derivatives, and FX.</h2>
+          <p class="section__intro">Each role added a market and a constraint. On rates it was fills, on equity derivatives it was risk, and on FX it is liquidity.</p>
+
+          <ol class="timeline">
+            <li class="role role--current" data-reveal>
+              <div class="role__when">
+                <div class="role__dates">Jun 2026 – Present</div>
+                <div class="role__place">Bangalore</div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Two Row -->
-      <div class="row justify-content-center no-gutters">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-02.jpg" alt="">
-        </div>
-        <div class="col-lg-6 order-lg-first">
-          <div class="bg-black text-center h-100 project">
-            <div class="d-flex h-100">
-              <div class="project-text w-100 my-auto text-center text-lg-right">
-                <h4 class="text-white">Mountains</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
-                <hr class="d-none d-lg-block mb-0 mr-0">
+              <span class="role__node" aria-hidden="true"></span>
+              <div class="role__body">
+                <h3 class="role__firm">Aspora</h3>
+                <p class="role__title">Foreign Exchange Trader</p>
+                <ul class="chips" aria-label="Market focus">
+                  <li class="chip">Cross-border FX</li><li class="chip">Execution</li><li class="chip">Liquidity</li><li class="chip">Treasury</li>
+                </ul>
+                <ul class="bullets">
+                  <li>Forecast capital flows across currency corridors covering about <strong>$450M</strong> a month of cross-border FX.</li>
+                  <li>Analyse FX execution and liquidity across payment corridors and the RDA and VDA settlement rails.</li>
+                  <li>Build FX treasury dashboards and the analytics behind execution decisions.</li>
+                </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </li>
 
-    </div>
-  </section>
-
-  <!-- Signup Section -->
-  <section id="signup" class="signup-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-          <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-
-          <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-            <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section bg-black">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Address</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Email</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">
-                <a href="#">hello@yourdomain.com</a>
+            <li class="role" data-reveal>
+              <div class="role__when">
+                <div class="role__dates">Sep 2024 – Aug 2025</div>
+                <div class="role__place">Noida</div>
               </div>
-            </div>
+              <span class="role__node" aria-hidden="true"></span>
+              <div class="role__body">
+                <h3 class="role__firm">NX Block Trades</h3>
+                <p class="role__title">Algorithmic Quantitative Trader</p>
+                <ul class="chips" aria-label="Market focus">
+                  <li class="chip">Equity futures</li><li class="chip">NIFTY / BANKNIFTY options</li><li class="chip">Systematic</li>
+                </ul>
+                <ul class="bullets">
+                  <li>Developed, deployed and managed an automated EMA momentum strategy on Indian equity futures: <strong>24%</strong> annualised return, Sharpe <strong>2.2</strong>.</li>
+                  <li>Built the Python research-to-execution stack, including walk-forward and out-of-sample validation, transaction-cost modelling and automated signal-to-order routing over the XTS API.</li>
+                  <li>Managed a <strong>$2M</strong> systematic portfolio, with Kelly-based sizing, Monte Carlo drawdown simulation and a daily VaR budget of about <strong>2.5%</strong>.</li>
+                  <li>Researched NIFTY and BANKNIFTY options strategies on RSI-2 and MACD signals with dynamic delta hedging.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="role" data-reveal>
+              <div class="role__when">
+                <div class="role__dates">Sep 2021 – Aug 2024</div>
+                <div class="role__place">Gurugram</div>
+              </div>
+              <span class="role__node" aria-hidden="true"></span>
+              <div class="role__body">
+                <h3 class="role__firm">Futures First</h3>
+                <p class="role__title">SOFR Interest Rates Curve &amp; Algo Trader</p>
+                <ul class="chips" aria-label="Market focus">
+                  <li class="chip">SOFR SR3 / SR1</li><li class="chip">Fed Funds ZQ</li><li class="chip">STIR spreads</li><li class="chip">TT / ADL</li>
+                </ul>
+                <ul class="bullets">
+                  <li>Developed <strong>6</strong> systematic strategies across SR3, SR1 and ZQ futures, with a Sharpe ratio of <strong>1.6</strong>.</li>
+                  <li>Built fair-value and illiquidity-adjusted pricing for far SR1 contracts and captured about <strong>30%</strong> of their traded volume.</li>
+                  <li>Reworked Autospreader and ADL execution rules from order-flow analysis; fill rates rose <strong>50%</strong> year on year.</li>
+                  <li>Managed a <strong>$1M</strong> proprietary portfolio under VaR and scenario limits, and built <strong>25+</strong> automated strategies and real-time dashboards.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Research</p></div>
+        <div>
+          <h2 id="research-title">Selected Research</h2>
+          <p class="section__intro">Research is written up the way a desk would review it: the question, the method, the data, the result, and what could make the result wrong.</p>
+
+          <div class="research">
+            <article class="study study--feature" data-reveal>
+              <div class="study__main">
+                <div class="study__top"><span class="study__idx">01</span><span class="status status--bt">Backtest</span></div>
+                <h3>Brindco</h3>
+                <p class="study__sub">NIFTY 50 stock-options wheel</p>
+                <dl class="facts">
+                  <dt>Market</dt><dd>NIFTY 50 constituents, monthly NSE stock options, physically settled</dd>
+                  <dt>Strategy</dt><dd>Systematic short put, assignment and covered call, ranked across 20 names, with leverage</dd>
+                  <dt>Question</dt><dd>Once margin, liquidity, delivery and costs are modelled, does a wheel across the index beat holding it on a risk-adjusted basis?</dd>
+                  <dt>Method</dt><dd>Point-in-time universe, T+1 fills with slippage and NSE charges, margin-constrained sizing at 1–5×, corporate actions and dividends</dd>
+                </dl>
+                <div class="study__foot">
+                  <a class="study__link" href="/research/brindco.html">Read the case study</a>
+                </div>
+              </div>
+              <div class="study__chart">
+                <div class="kpis">
+                  <div class="kpi"><div class="kpi__v">18.05%</div><div class="kpi__l">CAGR at 3×</div><div class="kpi__b">TRI 12.23%</div></div>
+                  <div class="kpi"><div class="kpi__v">−22.25%</div><div class="kpi__l">Max drawdown</div><div class="kpi__b">TRI −38.27%</div></div>
+                  <div class="kpi"><div class="kpi__v">0.91</div><div class="kpi__l">Sharpe (excess of T-bill)</div><div class="kpi__b">TRI 0.45</div></div>
+                </div>
+                <div class="chart">
+                  <div class="chart__legend" aria-hidden="true"><span><i></i>Wheel, 3× leverage</span><span><i class="b"></i>NIFTY 50 TRI</span></div>
+                  <div class="chart__frame" data-chart="nav" data-compact data-label="Growth of 100: wheel at 3× leverage against the NIFTY 50 total return index, December 2019 to June 2026">
+                    <div class="chart__tip" role="status" aria-live="polite"></div>
+                  </div>
+                  <p class="chart__cap">Growth of 100, weekly. Backtest, 31 Dec 2019 – 30 Jun 2026, ₹2 cr start, net of costs and slippage.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="study" data-reveal>
+              <div class="study__top"><span class="study__idx">02</span><span class="status status--bt">Backtest · not live</span></div>
+              <h3>Pure Alpha</h3>
+              <p class="study__sub">Systematic equity futures</p>
+              <dl class="facts">
+                <dt>Market</dt><dd>NSE single-stock futures, nearest expiry, on the point-in-time F&amp;O list (304 stocks over 2016–2026)</dd>
+                <dt>Strategy</dt><dd>Long-only trend continuation on 15-minute bars</dd>
+                <dt>Question</dt><dd>Does intraday trend continuation in stock futures survive costs across a decade and a full universe?</dd>
+                <dt>Method</dt><dd>Frozen specification re-run on the stocks and futures lots that existed at the time: 16.6M bars, 25,123 positions. Built on a Python, Flask and PostgreSQL platform with paper and live broker adapters and a kill switch</dd>
+                <dt>Result</dt><dd class="result"><span class="hl">Sharpe 1.14</span> and <span class="hl">8.1%</span> CAGR on peak margin, with a max drawdown of <span class="hl">−29.8%</span> of peak margin, over 2016–2026. Replaying today’s F&amp;O list had overstated it at Sharpe 2.02</dd>
+              </dl>
+              <div class="study__foot">
+                <a class="study__link" href="/research/pure-alpha.html">Open the research dashboard</a>
+                <p class="study__note" style="margin-top:12px">Research complete. Not deployed to live capital. Net of costs and slippage.</p>
+              </div>
+            </article>
+
+            <article class="study" data-reveal>
+              <div class="study__top"><span class="study__idx">03</span><span class="status status--design">Design only</span></div>
+              <h3>Synthetic Index Wheel</h3>
+              <p class="study__sub">NIFTY / BANKNIFTY</p>
+              <dl class="facts">
+                <dt>Market</dt><dd>NIFTY and BANKNIFTY index options and futures</dd>
+                <dt>Strategy</dt><dd>Short OTM put. If it settles in the money in cash, buy the next-month future at the expiry close and write OTM calls against it</dd>
+                <dt>Question</dt><dd>How do you rebuild the wheel’s delivery leg when index options settle in cash?</dd>
+                <dt>Method</dt><dd>Replication design covering futures basis, carry, roll cost and lot-size granularity</dd>
+                <dt>Finding</dt><dd class="result">Carry costs roughly <span class="hl">40–45 bp</span> a month against holding stock, and one lot is about <span class="hl">₹20 lakh</span> of notional, so sizing is lumpy</dd>
+              </dl>
+              <div class="study__foot"><p class="study__note">Framework only. No historical backtest has been run.</p></div>
+            </article>
+
+            <article class="study" data-reveal>
+              <div class="study__top"><span class="study__idx">04</span><span class="status">Desk research</span></div>
+              <h3>Rates / STIR</h3>
+              <p class="study__sub">SOFR / Fed Funds</p>
+              <dl class="facts">
+                <dt>Market</dt><dd>CME SOFR (SR3, SR1) and 30-day Fed Funds (ZQ) futures</dd>
+                <dt>Strategy</dt><dd>Curve spreads, SR1 back-spreads, fair-value quoting in illiquid back months</dd>
+                <dt>Question</dt><dd>Where do illiquid STIR contracts drift from the fair value implied by the liquid strip, and can execution capture it?</dd>
+                <dt>Method</dt><dd>Fair-value and illiquidity-adjusted pricing, with spread execution through TT Autospreader and ADL</dd>
+                <dt>Result</dt><dd class="result"><span class="hl">6</span> strategies with a Sharpe of <span class="hl">1.6</span>, and about <span class="hl">30%</span> of volume in far SR1 contracts</dd>
+              </dl>
+              <div class="study__foot"><p class="study__note">Futures First, 2021–2024. Desk figures as reported.</p></div>
+            </article>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-mobile-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Phone</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">+1 (555) 902-8832</div>
+    <!-- Markets -->
+    <section class="section" id="markets" aria-labelledby="markets-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Markets</p></div>
+        <div>
+          <h2 id="markets-title">Market coverage</h2>
+          <p class="section__intro">Where each market was traded, researched or risk-managed, by desk.</p>
+
+          <div>
+            <table class="matrix">
+              <caption class="visually-hidden">Market coverage by desk and research</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Asset class</th>
+                  <th scope="col">Aspora<small>2026 –</small></th>
+                  <th scope="col">NX Block Trades<small>2024 – 2025</small></th>
+                  <th scope="col">Futures First<small>2021 – 2024</small></th>
+                  <th scope="col">Research<small>ongoing</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><span class="asset">FX</span><span class="instr">Cross-border FX · liquidity · execution · treasury</span></th>
+                  <td class="on" data-col="Aspora"><span class="mk">Trading</span>Corridor flow forecasting, execution and liquidity, treasury analytics</td>
+                  <td class="off" data-col="NX Block Trades">—</td>
+                  <td class="off" data-col="Futures First">—</td>
+                  <td class="off" data-col="Research">—</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="asset">Rates</span><span class="instr">SOFR · SR3 · SR1 · Fed Funds · STIR</span></th>
+                  <td class="off" data-col="Aspora">—</td>
+                  <td class="off" data-col="NX Block Trades">—</td>
+                  <td class="on" data-col="Futures First"><span class="mk">Trading</span>SR3, SR1 and ZQ curve and spread strategies, far-SR1 fair value</td>
+                  <td class="off" data-col="Research">—</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="asset">Equities</span><span class="instr">NIFTY · BANKNIFTY · Indian equities · equity futures</span></th>
+                  <td class="off" data-col="Aspora">—</td>
+                  <td class="on" data-col="NX Block Trades"><span class="mk">Trading</span>EMA momentum on equity futures, NIFTY and BANKNIFTY breakout scanners</td>
+                  <td class="off" data-col="Futures First">—</td>
+                  <td class="on" data-col="Research"><span class="mk">Research</span>Pure Alpha, trend continuation across NSE stock futures, point in time</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="asset">Options</span><span class="instr">Delta hedging · wheel strategies · synthetic structures · volatility</span></th>
+                  <td class="off" data-col="Aspora">—</td>
+                  <td class="on" data-col="NX Block Trades"><span class="mk">Trading</span>Index options on RSI-2 and MACD signals, dynamic delta hedging</td>
+                  <td class="off" data-col="Futures First">—</td>
+                  <td class="on" data-col="Research"><span class="mk">Research</span>NIFTY 50 stock wheel, synthetic index wheel on NIFTY and BANKNIFTY</td>
+                </tr>
+                <tr>
+                  <th scope="row"><span class="asset">Risk</span><span class="instr">VaR · Monte Carlo · Kelly sizing · drawdown · portfolio construction</span></th>
+                  <td class="on" data-col="Aspora"><span class="mk">Risk</span>Liquidity and settlement across corridors</td>
+                  <td class="on" data-col="NX Block Trades"><span class="mk">Risk</span>Kelly sizing, Monte Carlo drawdowns, daily VaR budget</td>
+                  <td class="on" data-col="Futures First"><span class="mk">Risk</span>VaR and scenario limits on a $1M book</td>
+                  <td class="on" data-col="Research"><span class="mk">Risk</span>Leverage grids, stress windows, margin modelling, stop-loss sweeps</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="matrix__key">A green rule marks where the work happened. A dash means that market was not part of the role.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Approach</p></div>
+        <div>
+          <h2 id="philosophy-title">Research philosophy</h2>
+          <p class="section__intro">Four rules that decide whether a result is worth trading.</p>
+          <div class="principles">
+            <div class="principle">
+              <p class="principle__n">01</p>
+              <h3>Data before story</h3>
+              <p>Rebuild the universe as it stood on each date, and trust a price only once it reconciles with the exchange file. A narrative earns a test. It does not replace one.</p>
+            </div>
+            <div class="principle">
+              <p class="principle__n">02</p>
+              <h3>Risk before return</h3>
+              <p>Size from the loss the book can absorb, then look at the return. Leverage is a parameter to test, not a setting to assume.</p>
+            </div>
+            <div class="principle">
+              <p class="principle__n">03</p>
+              <h3>Execution matters</h3>
+              <p>A backtest that fills at mid is a forecast of a different strategy. Costs, slippage, participation limits and settlement mechanics go in before the first result is read.</p>
+            </div>
+            <div class="principle">
+              <p class="principle__n">04</p>
+              <h3>Validate everything</h3>
+              <p>Checks run against independent data. Parameters chosen in-sample are disclosed as in-sample, and when a check fails, its effect is measured and reported.</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="social d-flex justify-content-center">
-        <a href="#" class="mx-2">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-github"></i>
-        </a>
+    <!-- Education -->
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Education</p></div>
+        <div>
+          <h2 id="education-title" class="visually-hidden">Education and credentials</h2>
+          <div class="edu">
+            <div class="edu__item">
+              <p class="edu__k">Degree</p>
+              <h3>IIT Roorkee</h3>
+              <p>B.Tech, Civil Engineering · <span class="num">2017–2021</span></p>
+              <p><span class="num">76.46%</span> · Best B.Tech Project, awarded by the Director</p>
+            </div>
+            <div class="edu__item">
+              <p class="edu__k">Certification</p>
+              <h3>FRM, GARP</h3>
+              <p>Level I, cleared <span class="num">Nov 2024</span></p>
+              <p>Level II, sitting <span class="num">Nov 2026</span></p>
+            </div>
+            <div class="edu__item">
+              <p class="edu__k">Fellowship</p>
+              <h3>KVPY Fellow</h3>
+              <p>All India Rank <span class="num">1194</span> · <span class="num">2016</span></p>
+            </div>
+          </div>
+          <p class="edu__also"><b>Head of Finance &amp; Sponsorship, Cognizance, IIT Roorkee.</b> Led a 135-member team that raised ₹60 lakh in sponsorship and managed a ₹1.3 crore budget.</p>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap section__layout">
+        <div class="section__rail"><p class="label">Contact</p></div>
+        <div>
+          <h2 id="contact-title">Interested in markets, research or systematic trading?</h2>
+          <p class="section__intro">I’m happy to talk about FX, rates, derivatives and systematic research, and about roles on trading and research teams.</p>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/mohdshadabsiddiqui/" target="_blank" rel="me noopener">
+              <span class="links__k">LinkedIn</span><span class="links__v">in/mohdshadabsiddiqui</span><span class="links__m">Profile</span>
+            </a>
+            <a href="https://github.com/shadab28" target="_blank" rel="me noopener">
+              <span class="links__k">GitHub</span><span class="links__v">github.com/shadab28</span><span class="links__m">Code</span>
+            </a>
+            <a href="#contact" data-email-user="mohdshadabsiddiqui28" data-email-domain="gmail.com">
+              <span class="links__k">Email</span><span class="links__v" data-email-out>mohdshadabsiddiqui28 [at] gmail [dot] com</span><span class="links__m">Write</span>
+            </a>
+            <a href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">
+              <span class="links__k">Resume</span><span class="links__v">Mohd_Shadab_Siddiqui_CV.pdf</span><span class="links__m">PDF · 1 page</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="bg-black small text-center text-white-50">
-    <div class="container">
-      Copyright &copy; Your Website 2019
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <div class="footer__name">Mohd Shadab Siddiqui</div>
+        <div class="footer__tag">Quantitative Markets • FX • Systematic Research</div>
+      </div>
+      <small>© 2026 Mohd Shadab Siddiqui. Nothing on this site is investment advice.</small>
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/grayscale.min.js"></script>
-
+  <script src="/assets/js/brindco-data.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </body>
-
 </html>

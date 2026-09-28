@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pure Alpha | Systematic Equity Futures Research | Mohd Shadab Siddiqui</title>
+  <meta name="description" content="Pure Alpha — systematic equity futures research across Indian markets, covering portfolio construction, risk management, execution and historical backtest analysis.">
+  <meta name="author" content="Mohd Shadab Siddiqui">
+  <meta name="theme-color" content="#0b0e11">
+  <link rel="canonical" href="https://shadab28.github.io/research/pure-alpha.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mohd Shadab Siddiqui">
+  <meta property="og:title" content="Pure Alpha | Systematic Equity Futures Research">
+  <meta property="og:description" content="Backtest research dashboard for a long-only 15-minute strategy across 207 NSE stock futures: performance, drawdowns, portfolio construction, risk controls, validation and limitations.">
+  <meta property="og:url" content="https://shadab28.github.io/research/pure-alpha.html">
+  <meta property="og:image" content="https://shadab28.github.io/assets/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@300;400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="/">SHADAB SIDDIQUI</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav__menu" id="nav-menu">
+        <nav aria-label="Sections">
+          <ul class="nav__links">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#research" aria-current="true">Research</a></li>
+            <li><a href="/#markets">Markets</a></li>
+            <li><a href="/#education">Education</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__ext">
+          <a href="https://www.linkedin.com/in/mohdshadabsiddiqui/" rel="me noopener" target="_blank">LinkedIn</a>
+          <a href="https://github.com/shadab28" rel="me noopener" target="_blank">GitHub</a>
+          <a class="is-cv" href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <p class="crumbs"><a href="/#research">Research</a> / 02 / Pure Alpha</p>
+
+      <header class="cs-hero">
+        <span class="status status--bt">Backtest · point-in-time re-run</span>
+        <h1>Pure Alpha: systematic equity futures research</h1>
+        <p class="pa-tags">15-MINUTE <b>•</b> LONG ONLY <b>•</b> NSE STOCK FUTURES <b>•</b> 2016–2026 <b>•</b> BACKTEST</p>
+        <p class="lede">Portfolio-scale systematic research across Indian equity futures, combining intraday signals, portfolio construction, execution and explicit risk controls.</p>
+        <dl class="cs-meta">
+          <div><dt>Universe</dt><dd>304 stocks, each only while its futures were listed</dd></div>
+          <div><dt>Data</dt><dd class="num">16.6M fifteen-minute bars</dd></div>
+          <div><dt>Positions</dt><dd class="num">21 Sep 2016 – 11 Aug 2026</dd></div>
+          <div><dt>Status</dt><dd>Research complete · not deployed</dd></div>
+        </dl>
+        <div class="pa-actions">
+          <a class="btn" href="/#research">Back to research</a>
+        </div>
+      </header>
+
+      <div class="cs">
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#correction">Point-in-time correction</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#drawdowns">Drawdowns</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#calendar">Calendar returns</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#portfolio">Portfolio construction</a></li>
+            <li><a href="#risk">Risk management</a></li>
+            <li><a href="#analytics">Trade analytics</a></li>
+            <li><a href="#validation">Validation</a></li>
+            <li><a href="#assumptions">Assumptions</a></li>
+            <li><a href="#takeaway">Takeaway</a></li>
+          </ol>
+        </nav>
+
+        <div class="cs-body cs-body--wide">
+
+          <!-- 1. Summary -->
+          <section id="summary" aria-labelledby="h-summary">
+            <h2 id="h-summary">Summary</h2>
+            <div class="pa-kpis" role="list">
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Net P&amp;L</div><div class="pa-kpi__v">₹5.84 Cr</div><div class="pa-kpi__s">after costs and slippage</div></div>
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Sharpe</div><div class="pa-kpi__v">1.14</div><div class="pa-kpi__s">daily realised P&amp;L</div></div>
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Max drawdown</div><div class="pa-kpi__v">−₹1.50 Cr</div><div class="pa-kpi__s">−29.8% of peak margin</div></div>
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Peak margin</div><div class="pa-kpi__v">₹5.04 Cr</div><div class="pa-kpi__s">24 Apr 2025</div></div>
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Positions</div><div class="pa-kpi__v">25,123</div><div class="pa-kpi__s">9.9 years</div></div>
+              <div class="pa-kpi" role="listitem"><div class="pa-kpi__l">Underlyings</div><div class="pa-kpi__v">299</div><div class="pa-kpi__s">traded · 187 net profitable</div></div>
+            </div>
+            <p class="pa-kpis__note">Historical backtest of the frozen pure_alpha_v1.0 strategy with point-in-time lots, listing dates and universe. These are not live or audited results.</p>
+            <p style="margin-top:24px">Pure Alpha is a long-only trend-continuation strategy on NSE single-stock futures. Signals come from 15-minute candles, every qualifying signal becomes an independently sized position, and positions are held until a stop, target or trailing exit fires, often over several sessions. The research question was whether a simple, fully specified intraday entry could produce a positive risk-adjusted return at portfolio scale once costs, slippage and position-level risk budgets are applied, on the stocks and contract sizes that actually existed at the time.</p>
+            <div class="callout"><b>Where this differs from a pure intraday system.</b> Entries are intraday, but positions are carried overnight by design. The frozen specification has no end-of-day square-off: liquidation near the close was tested and rejected. In this run, positions closed in the entry session lost ₹10.60 Cr in aggregate, while positions carried past it made ₹16.44 Cr.</div>
+          </section>
+
+          <!-- 2. Point-in-time correction -->
+          <section id="correction" aria-labelledby="h-corr">
+            <h2 id="h-corr">Point-in-time correction</h2>
+            <p>The frozen study reported ₹12.39 Cr at a Sharpe of 2.02. It had to assume three things it could not observe: that today’s futures lot applied to every historical entry, that today’s 207-name F&amp;O list could be traded across 2016–2026, and that its market-breadth gate could be measured over those same 207 names. This page re-runs the same frozen strategy, with no rule, threshold or cost changed, on the exchange’s own history, one correction at a time.</p>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Bridge from the frozen result to the point-in-time result</caption>
+                <thead><tr><th scope="col">Run</th><th scope="col">Positions</th><th scope="col">Net P&amp;L</th><th scope="col">Change</th><th scope="col">Sharpe</th><th scope="col">Max DD</th></tr></thead>
+                <tbody id="pa-bridge">
+                  <tr><td>Frozen inputs (control)</td><td>26,864</td><td>₹12.39 Cr</td><td>—</td><td>2.02</td><td>−₹1.47 Cr</td></tr>
+                  <tr><td>+ lot listed on each entry day</td><td>27,277</td><td>₹11.23 Cr</td><td>−₹1.16 Cr</td><td>1.96</td><td>−₹1.38 Cr</td></tr>
+                  <tr><td>+ trade only while futures were listed</td><td>20,023</td><td>₹4.53 Cr</td><td>−₹6.70 Cr</td><td>1.08</td><td>−₹1.15 Cr</td></tr>
+                  <tr><td>+ breadth over listed names</td><td>19,716</td><td>₹4.57 Cr</td><td>+₹0.05 Cr</td><td>1.10</td><td>−₹1.12 Cr</td></tr>
+                  <tr class="is-pick"><td>+ names that later left F&amp;O (this page)</td><td>25,123</td><td>₹5.84 Cr</td><td>+₹1.27 Cr</td><td>1.14</td><td>−₹1.50 Cr</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">The control reproduces the frozen book position for position: 26,864 identical positions, plus one frozen position (HINDPETRO, 4 Aug 2026, ₹23,809) that no longer fires because Kite restated those bars after the freeze. Every run reads the same bars, 16 Aug 2016 to 11 Aug 2026.</p>
+            <h3>What moved the result</h3>
+            <ul class="bullets">
+              <li><b style="color:var(--text);font-weight:500">Listing dates, −₹6.70 Cr.</b> 7,305 of the frozen run’s 26,865 positions (27%) were entered on days the stock had no listed futures, and they made ₹6.78 Cr of its ₹12.39 Cr. Most were in stocks NSE added to F&amp;O only after a large rally: ADANIGREEN, PRESTIGE, CDSL and IRFC in November 2024, SOLARINDS in January 2025, RVNL and MAZDOCK in May 2025. Choosing today’s F&amp;O list chooses past winners.</li>
+              <li><b style="color:var(--text);font-weight:500">Lot sizes, −₹1.16 Cr.</b> The lot listed on each entry day replaces today’s lot. Candle prices are restated for later splits and bonuses, so each historical lot is scaled by a factor measured from NSE’s own price that day (RELIANCE in 2018: 2.10; COFORGE in 2019: 5.0).</li>
+              <li><b style="color:var(--text);font-weight:500">Names that left F&amp;O, +₹1.27 Cr.</b> 94 stocks that were in F&amp;O for part of the window and are not today, each traded only while listed. They add 5,407 positions.</li>
+              <li><b style="color:var(--text);font-weight:500">Breadth, +₹0.05 Cr.</b> Measuring the market-breadth gate over the names listed each day barely changes it.</li>
+            </ul>
+            <div class="callout"><b>How the listing dates were checked.</b> They come from the raw NSE F&amp;O bhavcopies, 1 Jan 2016 to 16 Sep 2026. A second point-in-time universe, built independently from the NSE archive, agrees with them on all 26,782 comparable frozen entry days, with no disagreement.</div>
+          </section>
+
+          <!-- 3. Performance -->
+          <section id="performance" aria-labelledby="h-perf">
+            <h2 id="h-perf">Performance</h2>
+            <p>Cumulative net P&amp;L, marked on each day a position closed, with its running peak. The drawdown panel below shares the same time axis and cursor.</p>
+            <div class="pa-toolbar">
+              <div class="pa-seg" role="group" aria-label="Date range">
+                <button type="button" data-range="0" aria-pressed="true">All</button>
+                <button type="button" data-range="5" aria-pressed="false">5Y</button>
+                <button type="button" data-range="3" aria-pressed="false">3Y</button>
+                <button type="button" data-range="1" aria-pressed="false">1Y</button>
+              </div>
+              <label class="pa-check"><input type="checkbox" id="pa-bench"> Show NIFTY 50 TRI on the same capital</label>
+            </div>
+            <figure class="figure chart" style="margin-top:0">
+              <div class="chart__legend pa-legend" aria-hidden="true">
+                <span><i></i>Cumulative net P&amp;L (₹ Cr)</span>
+                <span><i class="p"></i>Running peak</span>
+                <span id="pa-bench-legend" hidden><i class="b"></i>₹5.04 Cr in NIFTY 50 TRI, P&amp;L</span>
+              </div>
+              <div class="chart__frame chart__frame--wide" id="pa-equity" data-label="Cumulative net P&amp;L of Pure Alpha from September 2016 to August 2026, in rupees crore">
+                <div class="chart__tip" role="status" aria-live="polite"></div>
+              </div>
+              <div class="chart__frame chart__frame--under" id="pa-dd" data-label="Drawdown from the running peak of cumulative P&amp;L, in rupees crore">
+                <div class="chart__tip" role="status" aria-live="polite"></div>
+              </div>
+              <figcaption class="chart__cap">Upper: cumulative net P&amp;L in ₹ Cr on 2,054 P&amp;L days. Lower: drawdown from the running peak in ₹ Cr. Hover, or focus the chart and use the arrow keys. The benchmark line is the P&amp;L of ₹5.04 Cr invested in the NIFTY 50 TRI on 21 Sep 2016. The index data ends 31 Jul 2026.</figcaption>
+            </figure>
+            <div class="callout"><b>How to read the benchmark.</b> The strategy runs at a mean 4.86× notional-to-margin leverage, and its capital base is the ₹5.04 Cr peak margin, which was only reached in 2025. The index line is an unlevered, fully invested position of that size from day one. It is shown for scale and timing, not as a like-for-like hurdle.</div>
+          </section>
+
+          <!-- 4. Drawdowns -->
+          <section id="drawdowns" aria-labelledby="h-dd">
+            <h2 id="h-dd">Drawdowns</h2>
+            <div class="pa-grid3">
+              <div><p class="pa-stat__l">Maximum drawdown</p><p class="pa-stat__v">−₹1.50 Cr</p><p class="pa-stat__s">−29.8% of the ₹5.04 Cr peak margin</p></div>
+              <div><p class="pa-stat__l">Peak to trough</p><p class="pa-stat__v">24 Dec 2024 → 27 Feb 2026</p><p class="pa-stat__s">243 P&amp;L days of decline</p></div>
+              <div><p class="pa-stat__l">Recovery to a new high</p><p class="pa-stat__v">Not by 11 Aug 2026</p><p class="pa-stat__s">Still open at the end of the data, 595 calendar days after the peak</p></div>
+            </div>
+            <h3>Five deepest drawdowns</h3>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Five deepest drawdowns of cumulative P&amp;L</caption>
+                <thead><tr><th scope="col">Peak</th><th scope="col">Trough</th><th scope="col">Recovered</th><th scope="col">Depth</th><th scope="col">% of peak margin</th><th scope="col">Days to trough</th><th scope="col">Calendar days</th></tr></thead>
+                <tbody>
+                  <tr><td>24 Dec 2024</td><td>27 Feb 2026</td><td>Not by 11 Aug 2026</td><td class="neg">−₹1.50 Cr</td><td>−29.8%</td><td>243</td><td>595+</td></tr>
+                  <tr><td>15 Nov 2017</td><td>29 May 2020</td><td>17 Dec 2020</td><td class="neg">−₹1.46 Cr</td><td>−28.9%</td><td>498</td><td>1,128</td></tr>
+                  <tr><td>31 Jan 2022</td><td>11 Jul 2022</td><td>22 Aug 2022</td><td class="neg">−₹1.00 Cr</td><td>−19.8%</td><td>66</td><td>203</td></tr>
+                  <tr><td>26 Sep 2022</td><td>17 Apr 2023</td><td>8 Jun 2023</td><td class="neg">−₹0.93 Cr</td><td>−18.4%</td><td>111</td><td>255</td></tr>
+                  <tr><td>4 Mar 2021</td><td>5 May 2021</td><td>16 Sep 2021</td><td class="neg">−₹0.54 Cr</td><td>−10.8%</td><td>29</td><td>196</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Days to trough counts P&amp;L days, meaning days on which at least one position closed. Calendar days run from peak to recovery, or to the end of data.</p>
+            <p>Two drawdowns of almost the same depth frame the record. The 2017–2020 drawdown lasted more than three years from peak to a new high. The deepest, which began in December 2024, was still open when the data ends. Either would test the patience of anyone running the book.</p>
+          </section>
+
+          <!-- 5. Statistics -->
+          <section id="statistics" aria-labelledby="h-stats">
+            <h2 id="h-stats">Risk and return statistics</h2>
+            <div class="table-wrap">
+              <table class="data pa-stats">
+                <caption class="visually-hidden">Risk and return statistics</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                  <tr><td>Sharpe ratio</td><td>1.14</td><td>Annualised (√252) mean over SD of daily realised P&amp;L, on the 2,054 days with a closed position</td></tr>
+                  <tr><td>Sortino ratio</td><td>1.54</td><td>Same numerator, over downside deviation of daily realised P&amp;L</td></tr>
+                  <tr><td>CAGR on peak margin</td><td>8.07%</td><td>(₹5.04 Cr + net P&amp;L) / ₹5.04 Cr, annualised over 9.92 years</td></tr>
+                  <tr><td>Total return on peak margin</td><td>116.0%</td><td>Net P&amp;L / ₹5.04 Cr</td></tr>
+                  <tr><td>Annualised volatility</td><td>12.5%</td><td>SD of daily realised P&amp;L × √252, as a share of peak margin</td></tr>
+                  <tr><td>Maximum drawdown</td><td class="neg">−₹1.50 Cr</td><td>Deepest fall of cumulative realised P&amp;L from its running peak, −29.8% of peak margin</td></tr>
+                  <tr><td>CAGR / max drawdown</td><td>0.27</td><td>Calmar on the standard definition: 8.07% / 29.8%</td></tr>
+                  <tr><td>Net P&amp;L / max drawdown</td><td>3.89×</td><td>A ratio of totals, which the research engine labels Calmar. It is not annualised</td></tr>
+                  <tr><td>Win rate</td><td>30.8%</td><td>7,740 of 25,123 positions closed with positive net P&amp;L</td></tr>
+                  <tr><td>Profit factor</td><td>1.11</td><td>Gross profit on winners / gross loss on losers, after costs</td></tr>
+                  <tr><td>Average position</td><td>₹2,326</td><td>Net P&amp;L / positions (expectancy)</td></tr>
+                  <tr><td>Median position</td><td class="neg">−₹22,323</td><td>Most positions lose. The average is positive because of the right tail</td></tr>
+                  <tr><td>Average winner / loser</td><td>₹75,073 / −₹30,066</td><td>Payoff ratio 2.50</td></tr>
+                  <tr><td>Best position</td><td>₹7.99 L</td><td>GAIL, 6 Nov – 18 Dec 2020</td></tr>
+                  <tr><td>Worst position</td><td class="neg">−₹2.66 L</td><td>GAIL, 31 May – 6 Jun 2019</td></tr>
+                  <tr><td>Losses beyond 2R</td><td>603 (2.4%)</td><td>Positions that lost more than twice their planned risk, mostly through gaps. The worst was −12.6R</td></tr>
+                  <tr><td>Holding period</td><td>5.0 days mean · 3 median</td><td>Calendar days from first entry to final exit</td></tr>
+                  <tr><td>Mean leverage</td><td>4.86×</td><td>Position notional / margin, averaged across positions</td></tr>
+                  <tr><td>Median position notional</td><td>₹24.8 L</td><td>Across all 25,123 positions</td></tr>
+                  <tr><td>Margin utilisation</td><td>23.6%</td><td>Time-weighted average margin committed, as a share of the ₹5.04 Cr peak</td></tr>
+                  <tr><td>Peak concurrent positions</td><td>160</td><td>21 Apr 2026</td></tr>
+                  <tr><td>Turnover</td><td>Not available</td><td>Not in the published dataset</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>From gross to net</h3>
+            <div class="waterfall">
+              <div><p class="pa-stat__l">Before slippage</p><p class="pa-stat__v">₹10.09 Cr</p></div>
+              <div><p class="pa-stat__l">Slippage, 2 bp/leg</p><p class="pa-stat__v">−₹2.55 Cr</p></div>
+              <div><p class="pa-stat__l">Gross P&amp;L</p><p class="pa-stat__v">₹7.54 Cr</p></div>
+              <div><p class="pa-stat__l">Charges</p><p class="pa-stat__v">−₹1.70 Cr</p></div>
+              <div class="is-total"><p class="pa-stat__l">Net P&amp;L</p><p class="pa-stat__v">₹5.84 Cr</p></div>
+            </div>
+            <p class="table-note">Slippage is applied inside every fill, so gross P&amp;L already includes it. Charges are brokerage, STT, exchange fees and GST under the research cost model. Together, slippage and charges consume 42% of the pre-cost P&amp;L, so the result is sensitive to execution quality.</p>
+          </section>
+
+          <!-- 6. Calendar -->
+          <section id="calendar" aria-labelledby="h-cal">
+            <h2 id="h-cal">Calendar returns</h2>
+            <p>Annual and monthly P&amp;L, keyed on the date each position closed. Returns are measured against the ₹5.04 Cr peak margin of the whole book, so every period uses the same base.</p>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Annual performance</caption>
+                <thead><tr><th scope="col">Year</th><th scope="col">P&amp;L</th><th scope="col"><span class="visually-hidden">P&amp;L bar</span></th><th scope="col">Return</th><th scope="col">Max DD</th><th scope="col">Trades</th><th scope="col">Win %</th><th scope="col">Sharpe</th><th scope="col">NIFTY 50 TRI</th></tr></thead>
+                <tbody id="pa-years">
+                  <tr><td colspan="9" class="pa-empty">The annual table needs JavaScript.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">¹ 2016 is partial: the first entry was on 21 Sep 2016, after a 600-bar warm-up. ² 2026 is year to date: the data ends 11 Aug 2026, and the index column runs to 31 Jul 2026. Yearly Sharpe uses the population SD, as the frozen study’s year table does; the whole-period figure uses the sample SD. The index column is the calendar-year NIFTY 50 TRI return, for context only. Four of eleven calendar years lost money: 2016, 2018, 2019 and 2025.</p>
+
+            <h3>Monthly P&amp;L, % of peak margin</h3>
+            <div class="table-wrap">
+              <table class="heat" id="pa-heat">
+                <caption class="visually-hidden">Monthly P&amp;L as a percentage of peak margin, by year and month</caption>
+              </table>
+            </div>
+            <div class="heat-key" aria-hidden="true"><span>Loss</span><span class="heat-key__ramp"></span><span>Gain</span><span style="margin-left:12px">Cells show % of ₹5.04 Cr; hover for rupees and position count</span></div>
+            <p class="table-note">March 2020 is empty on purpose. Every position had closed by 28 Feb 2020, and the market-breadth gate blocked new entries until 7 Apr 2020, so the book held nothing through the March 2020 crash.</p>
+          </section>
+
+          <!-- 7. Methodology -->
+          <section id="methodology" aria-labelledby="h-method">
+            <h2 id="h-method">Methodology</h2>
+            <p>The strategy is fully specified and frozen: every rule below is implemented once and shared by the research engine and the production package. Numeric signal thresholds are withheld from this page. The frozen specification records every value.</p>
+            <ol class="pipe">
+              <li><b>Market data</b><p>15-minute spot candles for the 304 stocks that had listed futures at some point in the window, 16.6M bars from 16 Aug 2016 to 11 Aug 2026, from Kite historical data. The listed lot and the listing dates come from the raw NSE F&amp;O bhavcopies.</p></li>
+              <li><b>Signal generation</b><p>Long-only trend continuation. A pullback bar closes back above a medium-term EMA while the shorter EMAs sit above the longer ones. The signal is evaluated only on completed 15-minute closes, after a 600-bar warm-up.</p></li>
+              <li><b>Opportunity selection</b><p>A stock is eligible only on days its futures were listed. A market-breadth gate, measured over the names listed that day, blocks entries unless enough of the market is in trend. Entry-bar range and relative-volume filters remove outsized or illiquid bars. At most one open position is held per stock.</p></li>
+              <li><b>Position sizing</b><p>Whole futures lots of the size listed on the entry day, scaled to the split-adjusted prices: the smaller of what a ₹50,000 risk budget and a ₹10,00,000 margin budget allow, rounded down.</p></li>
+              <li><b>Portfolio construction</b><p>Every qualifying signal is taken. The book is the sum of independently sized positions, with no portfolio-level cap in the research.</p></li>
+              <li><b>Execution</b><p>Two-stage entry. Half the position fills at the signal close. The rest fills only after a confirmation close, and is re-sized at its own fill so the whole position stays inside both budgets. Fills are at the bar close plus 2 bp of slippage per leg.</p></li>
+              <li><b>Risk control</b><p>The position is split into two halves, each with its own volatility-bounded stop. One half books at a fixed multiple of its risk, and the other trails. Stops fire on closes and do not ratchet.</p></li>
+              <li><b>Exit</b><p>A position closes on a stop, target or trailing exit at a 15-minute close. Positions carry overnight, and there is no end-of-day square-off.</p></li>
+            </ol>
+
+            <h3>Strategy parameters</h3>
+            <div class="table-wrap">
+              <table class="data pa-val">
+                <caption class="visually-hidden">Strategy parameters</caption>
+                <thead><tr><th scope="col">Item</th><th scope="col">Specification</th><th scope="col">Note</th></tr></thead>
+                <tbody>
+                  <tr><td>Market</td><td>NSE single-stock futures</td><td>Nearest expiry, sized in lots</td></tr>
+                  <tr><td>Universe</td><td>Point in time</td><td>304 stocks with candles, each tradeable only while its futures were listed</td></tr>
+                  <tr><td>Lot size</td><td>Listed on the entry day</td><td>From the NSE bhavcopy, scaled by that day’s split and bonus factor</td></tr>
+                  <tr><td>Signal source</td><td>Spot 15-min candles</td><td>Signals use spot prices, while execution and sizing use futures lots and margins</td></tr>
+                  <tr><td>Timeframe</td><td>15 minutes</td><td>Close-based throughout, with no intrabar touches</td></tr>
+                  <tr><td>Direction</td><td>Long only</td><td>No short rules exist</td></tr>
+                  <tr><td>Holding</td><td>Multi-day</td><td>Median 3 calendar days. 84.7% of positions were held past their entry session</td></tr>
+                  <tr><td>End-of-day exit</td><td>None</td><td>A 15:15 liquidation of near-stop positions was tested and rejected</td></tr>
+                  <tr><td>Daily-loss control</td><td>None in the backtest</td><td>A ₹5 L circuit breaker exists in the deployment configuration only</td></tr>
+                  <tr><td>Position budgets</td><td>₹50,000 risk · ₹10 L margin</td><td>Per position, across both tranches</td></tr>
+                  <tr><td>Portfolio cap</td><td>None in the backtest</td><td>Up to 160 concurrent positions</td></tr>
+                  <tr><td>Research window</td><td>21 Sep 2016 – 11 Aug 2026</td><td>Data from 16 Aug 2016; the first entries follow the warm-up</td></tr>
+                  <tr><td>Version</td><td>pure_alpha_v1.0</td><td>Rules frozen 12 Aug 2026, re-run point in time 28 Sep 2026</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 8. Portfolio construction -->
+          <section id="portfolio" aria-labelledby="h-port">
+            <h2 id="h-port">Portfolio construction</h2>
+            <p>Pure Alpha is a portfolio system rather than a single signal. Each listed stock produces its own stream of signals, and the book is what those streams add up to after every position has been sized against the same budgets.</p>
+            <div class="flow" role="list">
+              <span role="listitem">Signal<small>15-min close</small></span>
+              <span role="listitem">Eligibility<small>futures listed, breadth, bar filters</small></span>
+              <span role="listitem">Sizing<small>₹50k risk budget</small></span>
+              <span role="listitem">Margin check<small>₹10 L margin budget</small></span>
+              <span role="listitem">Allocation<small>whole listed lots</small></span>
+              <span role="listitem">Execution<small>two tranches</small></span>
+              <span role="listitem">Monitoring<small>stops on each close</small></span>
+              <span role="listitem">Exit<small>stop, target, trail</small></span>
+            </div>
+            <div class="pa-grid3">
+              <div><p class="pa-stat__l">Peak concurrent positions</p><p class="pa-stat__v">160</p><p class="pa-stat__s">21 Apr 2026. There is no cap on simultaneous positions</p></div>
+              <div><p class="pa-stat__l">Peak margin</p><p class="pa-stat__v">₹5.04 Cr</p><p class="pa-stat__s">24 Apr 2025, the capital base for every return on this page</p></div>
+              <div><p class="pa-stat__l">Margin utilisation</p><p class="pa-stat__v">23.6%</p><p class="pa-stat__s">Time-weighted, of the peak. The peak is rarely in use</p></div>
+            </div>
+            <h3>Position-level constraints, enforced on every position</h3>
+            <ul class="bullets">
+              <li><strong>0 of 25,123</strong> positions exceeded the ₹50,000 risk budget (largest planned risk ₹49,997) or the ₹10 L margin budget (largest ₹9,99,967), including after the second tranche.</li>
+              <li><strong>0</strong> overlapping positions in any one stock.</li>
+              <li>Each position’s two legs sum to its recorded net P&amp;L within one paisa.</li>
+            </ul>
+            <h3>Scaling with the position notional cap</h3>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Results under per-position notional caps</caption>
+                <thead><tr><th scope="col">Per-position notional cap</th><th scope="col">Positions</th><th scope="col">Net P&amp;L</th><th scope="col">Sharpe</th><th scope="col">Max DD</th></tr></thead>
+                <tbody>
+                  <tr><td>₹15 L</td><td>34,256</td><td>₹1.09 Cr</td><td>0.47</td><td class="neg">−₹0.80 Cr</td></tr>
+                  <tr><td>₹20 L</td><td>30,657</td><td>₹2.19 Cr</td><td>0.82</td><td class="neg">−₹0.99 Cr</td></tr>
+                  <tr><td>₹25 L</td><td>27,498</td><td>₹3.77 Cr</td><td>1.11</td><td class="neg">−₹1.15 Cr</td></tr>
+                  <tr><td>₹30 L</td><td>25,868</td><td>₹4.70 Cr</td><td>1.16</td><td class="neg">−₹1.28 Cr</td></tr>
+                  <tr class="is-pick"><td>No cap</td><td>25,123</td><td>₹5.84 Cr</td><td>1.14</td><td class="neg">−₹1.50 Cr</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Sensitivity runs from the same point-in-time study. Capping notional below about ₹25 L cuts Sharpe sharply (0.47 at ₹15 L), so the result depends on the larger positions. Those are the tightly stopped, low-volatility entries where the risk budget buys the most notional. Market impact is not modelled, so capacity at those sizes is untested.</p>
+          </section>
+
+          <!-- 9. Risk -->
+          <section id="risk" aria-labelledby="h-risk">
+            <h2 id="h-risk">Risk management</h2>
+            <p>The controls fall into three groups. Some are enforced inside the backtest. Some were tested and rejected on evidence. The rest exist only in the deployment configuration and were not simulated. They are listed separately so that no control is credited with a result it did not produce.</p>
+            <ul class="ctrl">
+              <li><b>Per-position risk budget, ₹50,000</b><span class="vtag vtag--pass">IN BACKTEST</span><span>0 breaches across 25,123 positions, with risk recomputed leg by leg from both entry prices</span></li>
+              <li><b>Per-position margin budget, ₹10 L</b><span class="vtag vtag--pass">IN BACKTEST</span><span>0 breaches. This budget is what makes sizing margin-aware</span></li>
+              <li><b>Volatility-bounded stops on each half</b><span class="vtag vtag--pass">IN BACKTEST</span><span>Stops fire on closes, so a gap can overshoot them: 603 positions (2.4%) lost more than 2R, and the worst lost 12.6R</span></li>
+              <li><b>One position per stock</b><span class="vtag vtag--pass">IN BACKTEST</span><span>0 overlapping positions</span></li>
+              <li><b>End-of-day square-off</b><span class="vtag vtag--limit">REJECTED</span><span>Liquidating near-stop positions at 15:15 saved about ₹0.7 of loss for every ₹1 of profit it gave up (frozen study)</span></li>
+              <li><b>Overnight index hedge</b><span class="vtag vtag--limit">REJECTED</span><span>NIFTY puts cost ₹5.30 of premium for every ₹1 of tail loss removed (frozen study)</span></li>
+              <li><b>Sector, correlation and volatility caps</b><span class="vtag vtag--limit">REJECTED</span><span>No slicing rule saved more than ₹0.33 of tail per ₹1 of profit given up (frozen study)</span></li>
+              <li><b>Portfolio exposure cap</b><span class="vtag vtag--nt">NOT IN BACKTEST</span><span>Position count and gross exposure were unbounded, peaking at 160 positions</span></li>
+              <li><b>Daily-loss circuit breaker</b><span class="vtag vtag--checked">DEPLOYMENT ONLY</span><span>Set at ₹5 L in the production config, chosen rather than fitted, and not simulated. Its effect on returns is unknown</span></li>
+              <li><b>Kill switch</b><span class="vtag vtag--checked">DEPLOYMENT ONLY</span><span>Two actions: stop new entries while managing open stops, or flatten everything</span></li>
+            </ul>
+            <p class="table-note">The three rejected controls were evaluated in the frozen study, on the frozen universe. They have not been re-tested on the point-in-time book.</p>
+
+            <h3>What the backtest book actually experienced</h3>
+            <div class="pa-grid3">
+              <div><p class="pa-stat__l">Worst day, realised</p><p class="pa-stat__v">−₹17.6 L</p><p class="pa-stat__s">10 Mar 2025, 3.5% of peak margin</p></div>
+              <div><p class="pa-stat__l">Days worse than ₹5 L</p><p class="pa-stat__v">102</p><p class="pa-stat__s">Of 2,054 P&amp;L days, the deployment breaker’s level</p></div>
+              <div><p class="pa-stat__l">Days worse than 2% of margin</p><p class="pa-stat__v">11</p><p class="pa-stat__s">A realised loss of ₹10.1 L or more on the day</p></div>
+            </div>
+            <div class="pa-grid3" style="border-top:1px solid var(--line)">
+              <div><p class="pa-stat__l">Carried past entry session</p><p class="pa-stat__v">₹16.44 Cr</p><p class="pa-stat__s">21,285 positions, net P&amp;L</p></div>
+              <div><p class="pa-stat__l">Closed in entry session</p><p class="pa-stat__v">−₹10.60 Cr</p><p class="pa-stat__s">3,838 positions, net P&amp;L</p></div>
+              <div><p class="pa-stat__l">Exits forced at the open</p><p class="pa-stat__v">−₹4.66 Cr</p><p class="pa-stat__s">5,398 positions stopped on the opening bar after an overnight gap</p></div>
+            </div>
+            <p style="margin-top:20px">The market-breadth gate also acts as a regime filter. Every position had closed by 28 Feb 2020, and no new entry was allowed until 7 Apr 2020, so the book was flat through the March 2020 crash. It is a single episode, so it shows the mechanism rather than proving it.</p>
+            <p>The overnight gap is the strategy’s main risk, and it is also where the return comes from. Positions that survive their first session earn all of the P&amp;L. Positions stopped at the next open are the cost of carrying them.</p>
+            <h3>Deployment guardrails, not backtested</h3>
+            <p class="table-note" style="margin-top:0">Operational limits in the production package. They can only reduce risk relative to the tested strategy, and they must not be fitted to the backtest. The strategy has not been deployed: the live broker path is cash-only, and no futures roll rule exists.</p>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Deployment guardrails</caption>
+                <thead><tr><th scope="col">Guardrail</th><th scope="col">Limit</th></tr></thead>
+                <tbody>
+                  <tr><td>Daily realised loss</td><td>₹5,00,000</td></tr>
+                  <tr><td>Open positions</td><td>40</td></tr>
+                  <tr><td>Gross exposure</td><td>₹5 Cr</td></tr>
+                  <tr><td>Notional per position</td><td>₹40 L</td></tr>
+                  <tr><td>New entries per bar</td><td>5</td></tr>
+                  <tr><td>Orders per symbol per day</td><td>6</td></tr>
+                  <tr><td>Stale price / stale candle</td><td>90 s / 20 min</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 10. Trade analytics -->
+          <section id="analytics" aria-labelledby="h-an">
+            <h2 id="h-an">Trade analytics</h2>
+
+            <h3 style="margin-top:0">Where the money was made and lost</h3>
+            <p>187 of the 299 traded stocks were net profitable. The ten best contributed 29% of net P&amp;L. The frozen study’s top names were mostly stocks traded before they had futures; they have dropped out of this list.</p>
+            <div class="pa-grid2">
+              <div class="table-wrap">
+                <table class="data">
+                  <caption class="visually-hidden">Top 10 underlyings by net P&amp;L</caption>
+                  <thead><tr><th scope="col">Top 10</th><th scope="col">P&amp;L</th><th scope="col"><span class="visually-hidden">Bar</span></th><th scope="col">Pos.</th><th scope="col">Win %</th><th scope="col">Avg</th></tr></thead>
+                  <tbody id="pa-top"></tbody>
+                </table>
+              </div>
+              <div class="table-wrap">
+                <table class="data">
+                  <caption class="visually-hidden">Bottom 10 underlyings by net P&amp;L</caption>
+                  <thead><tr><th scope="col">Bottom 10</th><th scope="col">P&amp;L</th><th scope="col"><span class="visually-hidden">Bar</span></th><th scope="col">Pos.</th><th scope="col">Win %</th><th scope="col">Avg</th></tr></thead>
+                  <tbody id="pa-bottom"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3>P&amp;L distribution per position</h3>
+            <p>The distribution is right-skewed, as a trend-following book should be: the median position loses ₹22,323, while the average makes ₹2,326. The 5th and 95th percentiles are −₹51,878 and ₹1.17 L. Outside the chart range are 25 positions below −₹1.5 L and 32 above ₹4 L.</p>
+            <figure class="figure chart">
+              <div class="chart__legend" aria-hidden="true"><span><i class="n" style="border-top-color:var(--loss)"></i>Losing bins</span><span><i></i>Winning bins</span></div>
+              <div class="chart__frame chart__frame--bars" id="pa-hist" data-label="Histogram of net P&amp;L per position in ten-thousand-rupee bins from minus 1.5 lakh to plus 4 lakh">
+                <div class="chart__tip" role="status" aria-live="polite"></div>
+              </div>
+              <figcaption class="chart__cap">Positions per ₹10,000 bin of net P&amp;L. Best position: ₹7.99 L (GAIL, 2020). Worst: −₹2.66 L (GAIL, 2019).</figcaption>
+            </figure>
+
+            <h3>Holding period</h3>
+            <p>This is the clearest picture of how the strategy works. Every holding bucket up to five days loses money in aggregate, and every bucket from six days on makes it. Losers are cut early, and the P&amp;L comes from the minority of positions that trend for weeks.</p>
+            <div class="pa-grid2">
+              <figure class="figure chart" style="margin-top:0">
+                <div class="chart__frame chart__frame--bars" id="pa-hold" data-label="Net P&amp;L by holding period, in rupees crore">
+                  <div class="chart__tip" role="status" aria-live="polite"></div>
+                </div>
+                <figcaption class="chart__cap">Net P&amp;L by calendar days held, ₹ Cr.</figcaption>
+              </figure>
+              <div class="table-wrap" style="margin-top:0">
+                <table class="data">
+                  <caption class="visually-hidden">Positions and P&amp;L by holding period</caption>
+                  <thead><tr><th scope="col">Held</th><th scope="col">Positions</th><th scope="col">Share</th><th scope="col">Net P&amp;L</th><th scope="col">Win %</th></tr></thead>
+                  <tbody id="pa-hold-table"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3>Entry time and weekday</h3>
+            <p>The 09:15 bar, which prints after the overnight gap, carries the most entries (2,533) and the most P&amp;L (₹54.9 L). Four regular bars lose money (09:45, 11:45, 12:30 and 13:15), so time of day is not a dependable edge on its own. Weekday differences are large in rupees but show no consistent pattern, and are unlikely to be meaningful.</p>
+            <div class="pa-grid2">
+              <figure class="figure chart" style="margin-top:0">
+                <div class="chart__frame chart__frame--bars" id="pa-hour" data-label="Net P&amp;L by 15-minute entry bar, in rupees crore">
+                  <div class="chart__tip" role="status" aria-live="polite"></div>
+                </div>
+                <figcaption class="chart__cap">Net P&amp;L by entry bar, ₹ Cr. The last bar groups 33 entries from NSE special evening sessions (Muhurat and the 24 Feb 2021 extension).</figcaption>
+              </figure>
+              <div class="table-wrap" style="margin-top:0">
+                <table class="data">
+                  <caption class="visually-hidden">Positions and P&amp;L by weekday of entry</caption>
+                  <thead><tr><th scope="col">Entry day</th><th scope="col">Positions</th><th scope="col">Net P&amp;L</th><th scope="col"><span class="visually-hidden">Bar</span></th><th scope="col">Win %</th></tr></thead>
+                  <tbody id="pa-dow"></tbody>
+                </table>
+                <p class="table-note">No entries fall on weekend special sessions: the bhavcopy set has no files for them, so no listed lot can be established and those days are skipped.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 12. Validation -->
+          <section id="validation" aria-labelledby="h-val">
+            <h2 id="h-val">Validation and robustness</h2>
+            <p>Each check is classified by the evidence behind it. <span class="vtag vtag--pass">PASS</span> means a recorded test with zero exceptions. <span class="vtag vtag--checked">CHECKED</span> means it was examined or modelled, with caveats. <span class="vtag vtag--limit">LIMITATION</span> means a known gap that biases the result. <span class="vtag vtag--nt">NOT TESTED</span> means there is no evidence either way.</p>
+            <div class="pa-val-sum"><span>6 pass</span><span>7 checked</span><span>7 limitations</span><span>3 not tested</span></div>
+            <div class="table-wrap">
+              <table class="data pa-val">
+                <caption class="visually-hidden">Validation and robustness checks</caption>
+                <thead><tr><th scope="col">Check</th><th scope="col">Status</th><th scope="col">Evidence</th></tr></thead>
+                <tbody>
+                  <tr><td>Harness parity</td><td><span class="vtag vtag--pass">PASS</span></td><td>With frozen inputs, the re-run reproduces the frozen book: 26,864 positions identical to the paisa. The one exception, HINDPETRO on 4 Aug 2026, is explained by Kite restating those bars after the freeze.</td></tr>
+                  <tr><td>Look-ahead bias (engine)</td><td><span class="vtag vtag--pass">PASS</span></td><td>The frozen study truncated data at 1 Jan 2022 and re-ran 40 instruments: 2,642 closed trades, 0 differences. This run uses the same engine, unchanged.</td></tr>
+                  <tr><td>Listing dates</td><td><span class="vtag vtag--pass">PASS</span></td><td>Two independently built point-in-time F&amp;O universes, one from the bhavcopy lot table and one from the NSE archive, agree on all 26,782 comparable entry days.</td></tr>
+                  <tr><td>Accounting integrity</td><td><span class="vtag vtag--pass">PASS</span></td><td>Every position’s legs sum to its net within ₹0.01. This page’s KPIs are recomputed from the 25,123 positions and match the run summary to the rupee.</td></tr>
+                  <tr><td>Position size limits</td><td><span class="vtag vtag--pass">PASS</span></td><td>Largest planned risk ₹49,997 against a ₹50,000 budget. Largest margin ₹9,99,967 against ₹10 L.</td></tr>
+                  <tr><td>Duplicate / overlapping positions</td><td><span class="vtag vtag--pass">PASS</span></td><td>0 overlapping holds in any stock.</td></tr>
+                  <tr><td>Lot sizes</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>The lot listed on each entry day, from NSE bhavcopies: the exchange’s own lot column from July 2024, and derived before that from traded value and open interest. The derived lots were checked against NSE revision circulars (April 2021, October 2022) and the current contract list for 2019 onward. Earlier years rest on the same method and internal checks.</td></tr>
+                  <tr><td>Survivorship bias</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>The universe is every stock that was in F&amp;O between 2016 and 2026, each only while listed. 40 of 366 such stocks have no candles, mostly delisted or merged names such as DHFL, JETAIRWAYS, RCOM and HDFC. That leaves 5.9% of listed stock-days uncovered, and a further 0.8% have no measurable split factor and are skipped.</td></tr>
+                  <tr><td>Corporate actions</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>Candles are restated for later splits and bonuses. Each lot is scaled by a factor measured from NSE’s own price on the day, and the factor can only jump on a corporate-action date. Spot checks: RELIANCE 2018 2.10, COFORGE 2019 5.0, TATASTEEL 2017 11.0.</td></tr>
+                  <tr><td>Transaction costs</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>Brokerage, STT, exchange fees and GST are modelled per leg: ₹1.70 Cr in total. Each exit order is charged in full.</td></tr>
+                  <tr><td>Split-sample stability</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>Both halves are profitable. Aug 2016 – Jul 2021: ₹1.60 Cr, Sharpe 0.73. Aug 2021 – Aug 2026: ₹4.24 Cr, Sharpe 1.46. Parameters were set on the full window, so this is not an out-of-sample test.</td></tr>
+                  <tr><td>Parameter sensitivity</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>Re-run point in time across the frozen 10-point grid for the second-tranche trigger: every setting is profitable, net ₹5.57–7.32 Cr, Sharpe 1.11–1.15. The notional-cap sweep, in Portfolio construction, is far less forgiving.</td></tr>
+                  <tr><td>Special sessions</td><td><span class="vtag vtag--checked">CHECKED</span></td><td>33 entries fall in NSE special evening sessions. Weekend special sessions have no bhavcopy in the data set and are skipped.</td></tr>
+                  <tr><td>Margin rates</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>The bhavcopy carries lots but not SPAN margins. Today’s Kite margin rate is applied to the point-in-time notional, and stocks no longer in F&amp;O take the median current rate. Sizing is mostly set by the risk budget, but the margin budget and peak margin depend on these rates.</td></tr>
+                  <tr><td>Slippage</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>2 bp per leg is aggressive for mid-cap F&amp;O names, and slippage and charges already consume 42% of pre-cost P&amp;L. No slippage sensitivity has been run.</td></tr>
+                  <tr><td>Execution timing</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>Entries fill at the close of the bar that generated the signal. A live system can only act after that close.</td></tr>
+                  <tr><td>Futures basis and roll</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>Signals and fills use spot candles, while sizing uses futures lots. Basis and monthly roll cost are absent from P&amp;L, and no roll rule exists.</td></tr>
+                  <tr><td>Portfolio position limits</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>No portfolio cap: up to 160 concurrent positions. A capped book would differ.</td></tr>
+                  <tr><td>Risk measured on realised P&amp;L</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>Sharpe, volatility and drawdown use P&amp;L on the day a position closes. Open-position mark-to-market swings are excluded, so intra-trade volatility and drawdown are understated.</td></tr>
+                  <tr><td>Live track record</td><td><span class="vtag vtag--limit">LIMITATION</span></td><td>Not deployed. A paper forward test began on 14 Aug 2026, and its sample is too small to support any claim.</td></tr>
+                  <tr><td>Out-of-sample / walk-forward</td><td><span class="vtag vtag--nt">NOT TESTED</span></td><td>No walk-forward or held-out period. Filters and the trigger were chosen on the full window, using the frozen universe.</td></tr>
+                  <tr><td>Liquidity and market impact</td><td><span class="vtag vtag--nt">NOT TESTED</span></td><td>There is a relative-volume filter on the entry bar, but no participation cap or impact model. The median position notional is ₹24.8 L.</td></tr>
+                  <tr><td>Missing bars</td><td><span class="vtag vtag--nt">NOT TESTED</span></td><td>There is no gap audit of the 15-minute candle store.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 13. Assumptions -->
+          <section id="assumptions" aria-labelledby="h-ass">
+            <h2 id="h-ass">Backtest assumptions</h2>
+            <div class="table-wrap">
+              <table class="data pa-val">
+                <caption class="visually-hidden">Backtest assumptions</caption>
+                <thead><tr><th scope="col">Assumption</th><th scope="col">Value / method</th><th scope="col">Impact / note</th></tr></thead>
+                <tbody>
+                  <tr><td>Price data</td><td>Kite historical 15-min spot candles</td><td>A separate research store, never mixed with live tick-built candles. Restated for later corporate actions</td></tr>
+                  <tr><td>Universe</td><td>Every stock in F&amp;O 2016–2026, while listed</td><td>From the raw NSE F&amp;O bhavcopies. 40 names without candles are missing</td></tr>
+                  <tr><td>Lot size</td><td>Listed on the entry day</td><td>Scaled by a measured split and bonus factor to match the restated prices</td></tr>
+                  <tr><td>Margin</td><td>Today’s Kite rate × point-in-time notional</td><td>The median current rate for stocks no longer in F&amp;O</td></tr>
+                  <tr><td>Execution timing</td><td>Fill at the signal bar’s close</td><td>Optimistic by up to one bar</td></tr>
+                  <tr><td>Slippage</td><td>2 bp per leg, inside every fill</td><td>₹2.55 Cr in total. Higher real slippage lowers every figure on this page</td></tr>
+                  <tr><td>Charges</td><td>Brokerage, STT, exchange fees, GST</td><td>₹1.70 Cr. The entry is costed as one order, and each half’s exit as its own order</td></tr>
+                  <tr><td>Instrument</td><td>Nearest-expiry stock future</td><td>Priced off spot. No basis, no roll cost, no expiry handling</td></tr>
+                  <tr><td>Position sizing</td><td>min(₹50k risk, ₹10 L margin), whole lots</td><td>Always rounded down. The second tranche is re-sized at its fill</td></tr>
+                  <tr><td>Stops</td><td>Evaluated on 15-min closes</td><td>A gap through a stop fills at the first 15-min close beyond it, not at the stop level</td></tr>
+                  <tr><td>Overnight</td><td>Positions carried</td><td>No hedge and no forced exit</td></tr>
+                  <tr><td>Capital base</td><td>Peak margin reserved, ₹5.04 Cr</td><td>Returns, CAGR and volatility are stated against it</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 14. Takeaway -->
+          <section id="takeaway" aria-labelledby="h-take">
+            <h2 id="h-take">Research takeaway</h2>
+            <div class="takeaway">
+              <ol>
+                <li><b>Risk-adjusted return: positive, but modest once the universe is honest.</b> ₹5.84 Cr net over 9.9 years at a Sharpe of 1.14, or 8.07% a year on peak margin. Both halves of the sample are profitable (Sharpe 0.73 and 1.46), and so is every point of the trigger grid. The edge per position is thin: profit factor 1.11, a 30.8% win rate, and a losing median position.</li>
+                <li><b>The correction is the main result.</b> Replaying today’s F&amp;O list over 2016–2026 more than doubled the backtest, to ₹12.39 Cr and a Sharpe of 2.02. 55% of that P&amp;L came from trading stocks before their futures existed, and most of those stocks were added to F&amp;O because they had rallied.</li>
+                <li><b>Drawdown: deep and slow.</b> −₹1.50 Cr, 29.8% of peak margin, from December 2024 and still open when the data ends. The 2017–2020 drawdown, −₹1.46 Cr, took 1,128 calendar days to recover. Four of eleven calendar years lost money.</li>
+                <li><b>Scalability: the open question.</b> The book peaked at 160 concurrent positions and ₹5.04 Cr of margin, and used 24% of that on average. Capping each position at ₹15–20 L of notional cuts Sharpe to 0.47–0.82, so the result depends on the larger positions, where market impact has not been measured.</li>
+                <li><b>What still stands between this and a live book.</b> Current margin rates rather than historical SPAN; 5.9% of listed stock-days with no candles; spot signals against futures execution, with no basis or roll; 2 bp slippage when costs already take 42% of pre-cost P&amp;L; risk measured on realised P&amp;L; in-sample parameters chosen on the frozen universe; and no live record. The next tests are slippage sensitivity, a roll and basis model, and a walk-forward run on this point-in-time universe.</li>
+              </ol>
+            </div>
+            <p class="table-note" style="margin-top:24px">Source: the frozen pure_alpha_v1.0 strategy re-run point in time by <code>research/phase3_pit.py</code> in the Pure Alpha repo. That script uses the frozen engine unchanged, with inputs from <code>research/pit_reference_build.py</code>. Every chart and table on this page is generated from that run’s 25,123 positions by <code>tools/build_pure_alpha_data.py</code>, which refuses to write output unless its figures reconcile with the run summary.</p>
+            <p style="margin-top:28px"><a class="study__link" style="position:static" href="/#research">Back to selected research</a></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="border-top:1px solid var(--line)">
+    <div class="wrap footer__inner">
+      <div>
+        <div class="footer__name">Mohd Shadab Siddiqui</div>
+        <div class="footer__tag">Quantitative Markets • FX • Systematic Research</div>
+      </div>
+      <small>© 2026 Mohd Shadab Siddiqui. Backtested results are hypothetical and not investment advice.</small>
+    </div>
+  </footer>
+
+  <script src="/assets/js/pure-alpha-data.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/pure-alpha.js" defer></script>
+</body>
+</html>

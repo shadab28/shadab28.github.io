@@ -1,68 +1,56 @@
-# [Start Bootstrap - Grayscale](https://startbootstrap.com/template-overviews/grayscale/)
+# shadab28.github.io
 
-[Grayscale](http://startbootstrap.com/template-overviews/grayscale/) is a multipurpose, one page HTML theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+Personal site of Mohd Shadab Siddiqui: FX trader and quantitative researcher.
+Live at <https://shadab28.github.io/>.
 
-## Preview
+Plain static HTML, CSS and JavaScript. There is no build step and there are no dependencies.
+GitHub Pages serves the `master` branch root as is (`.nojekyll` turns off Jekyll processing).
 
-[![Grayscale Preview](https://startbootstrap.com/assets/img/screenshots/themes/grayscale.png)](https://blackrockdigital.github.io/startbootstrap-grayscale/)
+```
+index.html                  homepage
+research/brindco.html       Brindco case study
+research/pure-alpha.html    Pure Alpha research dashboard
+404.html                    not-found page
+assets/css/site.css         all styles (design tokens at the top)
+assets/js/site.js           nav, section tracking, email, reveal, charts
+assets/js/brindco-data.js   weekly growth-of-100 series for the Brindco charts
+assets/js/pure-alpha.js     Pure Alpha charts and heatmap
+assets/js/pure-alpha-data.js          generated analytics (window.PURE_ALPHA)
+tools/build_pure_alpha_data.py        generator for the Pure Alpha data file
+assets/img/og-card.png      social preview image (1200x630)
+assets/Mohd_Shadab_Siddiqui_CV.pdf
+favicon.svg, favicon-32.png, apple-touch-icon.png, robots.txt, sitemap.xml
+```
 
-**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-grayscale/)**
+## Preview locally
 
-## Status
+```sh
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-grayscale/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-grayscale.svg)](https://www.npmjs.com/package/startbootstrap-grayscale)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-grayscale)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-grayscale?type=dev)
+Links are root-relative (`/assets/...`), so open the site through a server, not with `file://`.
 
-## Download and Installation
+## Common edits
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/grayscale/)
-* Install via npm: `npm i startbootstrap-grayscale`
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-grayscale.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-grayscale)
+- **CV:** overwrite `assets/Mohd_Shadab_Siddiqui_CV.pdf` and keep the file name.
+- **Email:** `data-email-user` and `data-email-domain` in the Contact section of `index.html`.
+  The address is assembled in the browser to keep it away from simple scrapers.
+- **LinkedIn / GitHub:** search `index.html` and `research/brindco.html` for `linkedin.com` and `github.com/shadab28`.
+- **Brindco charts:** `assets/js/brindco-data.js` holds weekly NAV rebased to 100
+  (`d` dates, `s` wheel at 3x, `b` NIFTY 50 TRI), taken from the Brindco backtest's `equity_curves.csv`.
 
-## Usage
+## Rebuilding the Pure Alpha data
 
-### Basic Usage
+The dashboard shows the frozen Pure Alpha v1.0 strategy re-run point in time
+(`research/results/phase3_pit/` in the Pure Alpha repo, produced by `research/phase3_pit.py`):
+futures lots, F&O listing dates and universe as they stood on each day, from the raw NSE
+bhavcopies. The script recomputes every figure from the run's positions and exits without
+writing anything if its results do not reconcile with the run's own summary. Pass `--run frozen`
+to build from the original frozen run (`research/results/phase3/`) instead.
 
-After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+```sh
+python3 tools/build_pure_alpha_data.py ~/Final/pure-alpha "$HOME/Work and Codiing/Brindco/data/market/nifty50_tri_daily.csv"
+```
 
-### Advanced Usage
-
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
-
-#### Gulp Tasks
-
-- `gulp` the default task that builds everything
-- `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-- `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
-- `gulp js` minifies the themes JS file
-- `gulp vendor` copies dependencies from node_modules to the vendor directory
-
-You must have npm and Gulp installed globally on your machine in order to use these features.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-grayscale/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/grayscale/).
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/gh-pages/LICENSE) license.
+The second argument (NIFTY 50 TRI daily closes) is optional and only feeds the benchmark line.
