@@ -402,7 +402,8 @@ def main() -> None:
         keep = ("trades", "net", "sharpe", "max_dd", "initial_capital", "cagr", "win_rate", "profit_factor")
         out["bridge"] = {k: {f: v["summary"][f] for f in keep} for k, v in pit_summary["runs"].items()}
         out["bridge_parity"] = pit_summary["runs"]["R0"].get("parity")
-        out["pit_coverage"] = pit_summary["reference"]
+        # "sources" holds absolute paths on the build machine; it never reaches the public page
+        out["pit_coverage"] = {k: v for k, v in pit_summary["reference"].items() if k != "sources"}
         out["meta"]["source"] = "Pure Alpha repo · research/results/phase3_pit/R3_strategy.json + R3_trades.json (point-in-time re-run of the frozen v1.0 strategy)"
         out["meta"]["producing_stage"] = "research/phase3_pit.py (engine: research/phase3_ems_tracking.py, unchanged)"
         # per-position budgets, recomputed from the trades

@@ -225,7 +225,7 @@
     }
   }
 
-  var data = window.BRINDCO_WEEKLY;
+  var data = window.WHEEL_WEEKLY;
   if (data) {
     var names = ["Wheel 3×", "NIFTY 50 TRI"];
     document.querySelectorAll("[data-chart]").forEach(function (frame) {

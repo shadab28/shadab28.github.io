@@ -8,12 +8,12 @@ GitHub Pages serves the `master` branch root as is (`.nojekyll` turns off Jekyll
 
 ```
 index.html                  homepage
-research/brindco.html       Brindco case study
+research/nifty50-options-wheel.html  options-wheel case study
 research/pure-alpha.html    Pure Alpha research dashboard
 404.html                    not-found page
 assets/css/site.css         all styles (design tokens at the top)
 assets/js/site.js           nav, section tracking, email, reveal, charts
-assets/js/brindco-data.js   weekly growth-of-100 series for the Brindco charts
+assets/js/wheel-data.js     weekly growth-of-100 series for the options-wheel charts
 assets/js/pure-alpha.js     Pure Alpha charts and heatmap
 assets/js/pure-alpha-data.js          generated analytics (window.PURE_ALPHA)
 tools/build_pure_alpha_data.py        generator for the Pure Alpha data file
@@ -36,9 +36,9 @@ Links are root-relative (`/assets/...`), so open the site through a server, not 
 - **CV:** overwrite `assets/Mohd_Shadab_Siddiqui_CV.pdf` and keep the file name.
 - **Email:** `data-email-user` and `data-email-domain` in the Contact section of `index.html`.
   The address is assembled in the browser to keep it away from simple scrapers.
-- **LinkedIn / GitHub:** search `index.html` and `research/brindco.html` for `linkedin.com` and `github.com/shadab28`.
-- **Brindco charts:** `assets/js/brindco-data.js` holds weekly NAV rebased to 100
-  (`d` dates, `s` wheel at 3x, `b` NIFTY 50 TRI), taken from the Brindco backtest's `equity_curves.csv`.
+- **LinkedIn / GitHub:** search `index.html` and `research/nifty50-options-wheel.html` for `linkedin.com` and `github.com/shadab28`.
+- **Options-wheel charts:** `assets/js/wheel-data.js` holds weekly NAV rebased to 100
+  (`d` dates, `s` wheel at 3x, `b` NIFTY 50 TRI), taken from the wheel backtest's `equity_curves.csv`.
 
 ## Rebuilding the Pure Alpha data
 
@@ -50,7 +50,7 @@ writing anything if its results do not reconcile with the run's own summary. Pas
 to build from the original frozen run (`research/results/phase3/`) instead.
 
 ```sh
-python3 tools/build_pure_alpha_data.py ~/Final/pure-alpha "$HOME/Work and Codiing/Brindco/data/market/nifty50_tri_daily.csv"
+python3 tools/build_pure_alpha_data.py ~/Final/pure-alpha /path/to/nifty50_tri_daily.csv
 ```
 
 The second argument (NIFTY 50 TRI daily closes) is optional and only feeds the benchmark line.

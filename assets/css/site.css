@@ -696,7 +696,7 @@ table { border-collapse: collapse; }
 
 /* ==========================================================================
    Pure Alpha research dashboard (research/pure-alpha.html)
-   Additive only: every selector below is new, so the Brindco page and the
+   Additive only: every selector below is new, so the options-wheel page and the
    homepage render exactly as before.
    ========================================================================== */
 :root { --loss: #d0784a; --loss-wash: rgba(208, 120, 74, 0.85); } /* loss colour, CVD-checked against --series-a on --bg */
