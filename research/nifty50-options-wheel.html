@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@300;400&amp;display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261006">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -60,7 +60,7 @@
       <p class="crumbs"><a href="/#research">Research</a> / 01 / Options Wheel</p>
 
       <header class="cs-hero">
-        <span class="status status--bt">Backtest · case study</span>
+        <span class="status status--bt">Backtest · not validated out of sample</span>
         <h1>A systematic options wheel across the NIFTY 50</h1>
         <p class="lede">A short-put, assignment and covered-call cycle run across the index’s constituents, with the parts that usually get assumed away modelled explicitly: physical delivery, margin, liquidity, corporate actions, dividends and costs.</p>
         <dl class="cs-meta">
@@ -81,11 +81,12 @@
             <li><a href="#risk">Risk</a></li>
             <li><a href="#validation">Validation</a></li>
             <li><a href="#results">Results</a></li>
+            <li><a href="#out-of-sample">Out of sample</a></li>
             <li><a href="#limitations">Limitations</a></li>
           </ol>
         </nav>
 
-        <div class="cs-body">
+        <div class="cs-body cs-body--fit">
           <section id="question" aria-labelledby="h-question">
             <h2 id="h-question">Research question</h2>
             <p>The wheel is usually presented as a single-stock income trade: sell a cash-secured put, take delivery if assigned, sell covered calls until the shares are called away. Two things are usually missing. One is a realistic portfolio across many names, sized under margin. The other is honest treatment of the delivery leg, where most of the risk sits.</p>
@@ -174,7 +175,8 @@
 
           <section id="results" aria-labelledby="h-results">
             <h2 id="h-results">Results</h2>
-            <p>At the chosen setting of 3× leverage, a 4% put offset, a 3% call offset and a 15% put stop, the wheel compounded at <strong>18.05%</strong> a year with a <strong>−22.25%</strong> maximum drawdown. Over the same window the NIFTY 50 TRI returned 12.23% a year with a −38.27% drawdown.</p>
+            <div class="callout"><b>Read this with the out-of-sample test.</b> The figures in this section come from settings chosen on this same window. Re-fitted on 2020–2023 and run on 2024 to June 2026, the same settings made 4.83% a year, below the T-bill. <a href="#out-of-sample">See the out-of-sample test.</a></div>
+            <p>Over the full window, at the chosen setting of 3× leverage, a 4% put offset, a 3% call offset and a 15% put stop, the wheel compounded at <strong>18.05%</strong> a year with a <strong>−22.25%</strong> maximum drawdown. Over the same window the NIFTY 50 TRI returned 12.23% a year with a −38.27% drawdown.</p>
             <figure class="figure chart">
               <div class="chart__legend" aria-hidden="true"><span><i></i>Wheel, 3× leverage</span><span><i class="b"></i>NIFTY 50 TRI</span></div>
               <div class="chart__frame" data-chart="nav" data-label="Growth of 100: wheel at 3× leverage against the NIFTY 50 total return index, December 2019 to June 2026">
@@ -205,10 +207,33 @@
             <div class="callout"><b>The case for 2× instead.</b> 2× has the better Sharpe (0.94 against 0.91) and Calmar (0.99 against 0.81), and its drawdown recovered within the window. 3× buys 2.5 more points of CAGR with 6.6 more points of drawdown. That is a preference, not a clear win.</div>
           </section>
 
+          <section id="out-of-sample" aria-labelledby="h-oos">
+            <h2 id="h-oos">Out of sample</h2>
+            <p>To test the parameter choice, every one of 900 configurations was re-run in full: leverage 1–5×, put and call offsets of 2–7%, and a put stop that was off or set at 10, 12, 15 or 20%. Each was fitted on 2020–2023 and then restarted from cash on 1 January 2024, so no position opened in the fit window carried into the test.</p>
+            <div class="table-wrap">
+              <table class="data">
+                <caption class="visually-hidden">Chosen settings in sample and out of sample</caption>
+                <thead><tr><th scope="col">Chosen settings (3×, put 4%, call 3%, stop 15%)</th><th scope="col">In sample 2020–2023</th><th scope="col">Out of sample 2024 – Jun 2026</th></tr></thead>
+                <tbody>
+                  <tr><td>CAGR</td><td>25.37%</td><td class="neg">4.83%</td></tr>
+                  <tr><td>Sharpe (excess of T-bill)</td><td>1.42</td><td class="neg">−0.01</td></tr>
+                  <tr><td>Max drawdown</td><td>−20.45%</td><td>−25.32%</td></tr>
+                  <tr><td>Rank among 900 configurations by CAGR</td><td>189</td><td>681</td></tr>
+                  <tr class="is-bench"><td>NIFTY 50 TRI CAGR</td><td>16.96%</td><td>5.08%</td></tr>
+                  <tr class="is-bench"><td>3-month T-bill, average</td><td>—</td><td>6.08%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Each configuration is restarted from cash at the split. Probability of backtest overfitting across the 900 configurations: 0.42.</p>
+            <p><strong>Choosing by return is what failed.</strong> Across the 900 configurations, the in-sample CAGR rank had a −0.26 rank correlation with the out-of-sample CAGR rank, so the highest-return settings tended to do worse later. Sharpe and Calmar ranks held up (0.50 and 0.80). The 4% put and 3× leverage had been picked on CAGR. Picked on Sharpe within 3×, the same test selects a 7% put, a 3% call and a 10% stop, which made 9.11% a year out of sample with a Sharpe of 0.49 and a −7.88% drawdown.</p>
+            <div class="callout"><b>The case for the chosen settings.</b> Held fixed through annual test years from 2022, they made 10.21% a year against 8.64% for the NIFTY 50 TRI, ahead of every re-fitted alternative on return. A single regime change, from the 2020–2023 rally to the September 2024 – February 2025 sell-off, can reverse return rankings without any curve-fitting, because leverage and close puts pay in rallies and lose in sell-offs. <b>Why it is weaker:</b> that fixed run was chosen with those years in view, so it is not independent evidence. Its Sharpe (0.39) and drawdown (−28.69%) are worse than the Sharpe-picked alternative’s, and a setting that only works in a regime nobody can call in advance has not been validated.</div>
+            <p>This test re-uses data that informed the original choice, so it can show the choice is fragile but cannot clear any alternative, including the 7% put. The only clean test left is data after June 2026. A forward test of the 7% put, 3% call, 10% stop setting on data from July 2026 has been pre-registered: one fixed configuration, judged after at least six monthly cycles against the TRI and the T-bill. It has not been run yet.</p>
+          </section>
+
           <section id="limitations" aria-labelledby="h-limitations">
             <h2 id="h-limitations">Limitations</h2>
             <ul class="bullets">
-              <li><strong>Parameters were chosen in-sample.</strong> Leverage, strike offsets, the stop-loss and the ranking threshold were all set after seeing results on the same window. A walk-forward test (fit 2019–2023, test 2024–2026) should decide between neighbouring settings.</li>
+              <li><strong>Parameters were chosen in-sample, and the out-of-sample test did not support them.</strong> Leverage, strike offsets, the stop-loss and the ranking threshold were all set after seeing results on the same window. The walk-forward test above found the chosen settings made 4.83% a year out of sample. The ranking threshold and the 20-name limit were held fixed in that test, so they remain in-sample choices.</li>
               <li><strong>One path, few events.</strong> The window holds 78 monthly expiries, and the worst episode is essentially one expiry. The tails, and so the leverage choice, rest on very few independent observations.</li>
               <li><strong>Unfunded in-the-money puts are probably flattered.</strong> The engine closes them at intrinsic value at expiry. In practice brokers square these off earlier, at prices that still carry time value and spread.</li>
               <li><strong>Margin is simplified.</strong> The model uses strike × quantity / L, not SPAN plus exposure margin. It has no exchange margin hikes in stress and no expiry-week delivery-margin ramp.</li>
