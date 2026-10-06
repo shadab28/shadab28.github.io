@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Filing System for Quant Signals | Mohd Shadab Siddiqui</title>
+  <meta name="description" content="Research note: 187 candidate quant signals from 386 sources, sorted by what each number measures into 11 families, scored on one robust scale, with regime as the switch.">
+  <meta name="author" content="Mohd Shadab Siddiqui">
+  <meta name="theme-color" content="#0b0e11">
+  <link rel="canonical" href="https://shadab28.github.io/research/signal-taxonomy.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mohd Shadab Siddiqui">
+  <meta property="og:title" content="A Filing System for Quant Signals">
+  <meta property="og:description" content="187 candidate signals, 11 families, one robust score, and regime as the switch.">
+  <meta property="og:url" content="https://shadab28.github.io/research/signal-taxonomy.html">
+  <meta property="og:image" content="https://shadab28.github.io/assets/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@300;400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261006">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="/">SHADAB SIDDIQUI</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <div class="nav__menu" id="nav-menu">
+        <nav aria-label="Sections">
+          <ul class="nav__links">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#research" aria-current="true">Research</a></li>
+            <li><a href="/#markets">Markets</a></li>
+            <li><a href="/#education">Education</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__ext">
+          <a href="https://www.linkedin.com/in/mohdshadabsiddiqui/" rel="me noopener" target="_blank">LinkedIn</a>
+          <a href="https://github.com/shadab28" rel="me noopener" target="_blank">GitHub</a>
+          <a class="is-cv" href="/assets/Mohd_Shadab_Siddiqui_CV.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <p class="crumbs"><a href="/#research">Research</a> / 05 / Signal Taxonomy</p>
+
+      <header class="cs-hero">
+        <span class="status status--design">Research note</span>
+        <h1>A filing system for quant signals</h1>
+        <p class="lede">I went through 386 sources on quant signals. The most useful thing I found was not a signal. It was a way to file them.</p>
+        <dl class="cs-meta">
+          <div><dt>Sources reviewed</dt><dd class="num">386</dd></div>
+          <div><dt>Candidate signals</dt><dd class="num">187</dd></div>
+          <div><dt>Families</dt><dd class="num">11</dd></div>
+          <div><dt>Scoring rule</dt><dd>One robust score for all</dd></div>
+        </dl>
+      </header>
+
+      <div class="cs">
+        <nav class="toc" aria-label="On this page">
+          <ol>
+            <li><a href="#problem">Sorting by indicator</a></li>
+            <li><a href="#families">Eleven families</a></li>
+            <li><a href="#regime">Regime is the switch</a></li>
+            <li><a href="#score">One scale</a></li>
+            <li><a href="#payer">Who pays</a></li>
+            <li><a href="#next">What gets tested</a></li>
+          </ol>
+        </nav>
+
+        <div class="cs-body cs-body--fit">
+          <section id="problem" aria-labelledby="h-problem">
+            <h2 id="h-problem">Sorting by indicator</h2>
+            <p>The research produced 187 candidate signals. Sorted by indicator, they were a mess: moving averages in one pile, oscillators in another. Two signals built from the same moving average can measure different things, and two built from different formulas can be the same bet.</p>
+            <p>Sorted by <strong>what the number measures</strong>, they fell into 11 families.</p>
+          </section>
+
+          <section id="families" aria-labelledby="h-families">
+            <h2 id="h-families">Eleven families</h2>
+            <div class="table-wrap">
+              <table class="data data--text">
+                <caption class="visually-hidden">The 11 signal families, what each measures, and who is usually on the other side</caption>
+                <thead><tr><th scope="col">Family</th><th scope="col">What the number measures</th><th scope="col">Usually on the other side</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Trend</th><td>Direction and persistence of price over a horizon</td><td>Holders who react slowly to news</td></tr>
+                  <tr><th scope="row">Momentum</th><td>Rate of change: recent winners against recent losers</td><td>Late buyers chasing a move</td></tr>
+                  <tr><th scope="row">Reversion</th><td>Distance from a fair value or mean</td><td>Traders who need to trade now and pay to do it</td></tr>
+                  <tr><th scope="row">Volatility</th><td>Realised against implied variance, and the vol term structure</td><td>Insurance buyers paying for protection</td></tr>
+                  <tr><th scope="row">Volume</th><td>Traded quantity, participation, relative volume</td><td>Informed flow that shows itself in size</td></tr>
+                  <tr><th scope="row">Liquidity</th><td>Spreads, depth and impact cost</td><td>Anyone who needs immediacy</td></tr>
+                  <tr><th scope="row">Positioning</th><td>Open interest, funding, put/call, crowding</td><td>The crowded side when it is forced to unwind</td></tr>
+                  <tr><th scope="row">Relative strength</th><td>One asset against its peers, sector or index</td><td>Capital that rotates slowly between names</td></tr>
+                  <tr><th scope="row">Microstructure</th><td>Order-book imbalance, trade signs, queue dynamics</td><td>Uninformed flow meeting faster liquidity providers</td></tr>
+                  <tr><th scope="row">Alternative data</th><td>Non-price sources: text, filings, macro releases</td><td>Markets that absorb non-price information slowly</td></tr>
+                  <tr><th scope="row">Regime</th><td>The market state that decides which family works</td><td>Nobody. It is the switch, not a payer</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">The last column is the usual explanation for each family, not a tested result.</p>
+          </section>
+
+          <section id="regime" aria-labelledby="h-regime">
+            <h2 id="h-regime">Regime is the switch</h2>
+            <p>Regime is the family I almost left out. It does not forecast returns on its own. It decides which of the other ten gets to speak.</p>
+            <p>The two studies on this site show why. <a href="/research/pure-alpha.html">Pure Alpha</a> is a trend signal, and its single most important filter is a market-state gate that stands the book down when too few stocks are trending. Trend books earn in persistent markets and bleed in choppy ones, while reversion does the opposite. A regime label known in advance is what routes capital between them.</p>
+          </section>
+
+          <section id="score" aria-labelledby="h-score">
+            <h2 id="h-score">One scale</h2>
+            <p>Then one rule for all of them: the same robust score, so funding, trend and order flow sit on one scale. Raw signals arrive in incompatible units, such as basis points of funding, price distance from a trend, and contracts of order-flow imbalance. Scoring each one against its own rolling median and median absolute deviation, rather than mean and standard deviation, puts them on a common scale where one outlier cannot dominate.</p>
+          </section>
+
+          <section id="payer" aria-labelledby="h-payer">
+            <h2 id="h-payer">Who pays</h2>
+            <div class="callout"><b>A signal is not its formula.</b> It is the reason someone is paying you to hold the other side. If you cannot name who pays, and why they keep paying, the formula is a pattern in past data and nothing more.</div>
+            <p>Every hypothesis I test is filed twice: once by family, which is what it measures, and once by who pays. The <a href="/research/nifty50-options-wheel.html">options wheel</a> is a volatility signal, and insurance buyers pay for it. Pure Alpha is a trend signal, and slow-reacting holders pay for it.</p>
+          </section>
+
+          <section id="next" aria-labelledby="h-next">
+            <h2 id="h-next">What gets tested</h2>
+            <p>Two claims in this note can be tested, and each has a stated pass mark:</p>
+            <ul class="bullets">
+              <li><strong>One scale works.</strong> An equal-weight blend of robust family scores beats the best single family out of sample.</li>
+              <li><strong>Regime earns its place.</strong> Switching family weights by regime beats static weights on the same families, out of sample.</li>
+            </ul>
+            <p>Neither has been run yet. A regime switch with few regime changes in the data is easy to fit to one history, so that test is the one most likely to fail.</p>
+            <p style="margin-top:32px"><a class="study__link" style="position:static" href="/#research">Back to selected research</a></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="border-top:1px solid var(--line)">
+    <div class="wrap footer__inner">
+      <div>
+        <div class="footer__name">Mohd Shadab Siddiqui</div>
+        <div class="footer__tag">Quantitative Markets • FX • Systematic Research</div>
+      </div>
+      <small>© 2026 Mohd Shadab Siddiqui. Backtested results are hypothetical and not investment advice.</small>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

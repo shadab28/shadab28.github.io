@@ -844,3 +844,11 @@ table { border-collapse: collapse; }
 .pa-grid2 .data td.bar-cell { min-width: 56px; width: 22%; }
 @media (max-width: 480px) { .pa-grid2 .data { min-width: 440px; } }
 .data.pa-val th { text-align: left; }
+/* Prose tables: wrapping text cells, left-aligned, no forced width */
+.data--text { min-width: 0; }
+.data--text th, .data--text td { text-align: left; white-space: normal; vertical-align: top; }
+.data--text td { font-family: var(--sans); }
+.data--text th[scope="row"] { color: var(--text); font-weight: 500; padding-left: 0; }
+.cs-body--fit { min-width: 0; } /* grid item: lets text and tables wrap at phone width */
+.study--wide { grid-column: 1 / -1; }
+.study--wide .facts { max-width: 760px; }
